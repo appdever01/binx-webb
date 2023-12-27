@@ -1,241 +1,272 @@
-(function () {
-  "use strict";
-
-  /**
-   * Easy selector helper function
-   */
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener("load", () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash);
-      }
-    }
-  });
-
-  /**
-   * Preloader
-   */
-  $(window).on("load", function () {
-    let preloader = select("#preloader");
-    if (preloader) {
-      preloader.remove();
-    }
-  });
-
-  const select = (el, all = false) => {
-    el = el.trim();
-    if (all) {
-      return [...document.querySelectorAll(el)];
-    } else {
-      return document.querySelector(el);
-    }
-  };
-
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all);
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach((e) => e.addEventListener(type, listener));
-      } else {
-        selectEl.addEventListener(type, listener);
-      }
-    }
-  };
-
-  /**
-   * Easy on scroll event listener
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener("scroll", listener);
-  };
-
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select("#navbar .scrollto", true);
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200;
-    navbarlinks.forEach((navbarlink) => {
-      if (!navbarlink.hash) return;
-      let section = select(navbarlink.hash);
-      if (!section) return;
-      if (
-        position >= section.offsetTop &&
-        position <= section.offsetTop + section.offsetHeight
-      ) {
-        navbarlink.classList.add("active");
-      } else {
-        navbarlink.classList.remove("active");
-      }
-    });
-  };
-  window.addEventListener("load", navbarlinksActive);
-  onscroll(document, navbarlinksActive);
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let header = select("#header");
-    let offset = header.offsetHeight;
-
-    if (!header.classList.contains("header-scrolled")) {
-      offset -= 20;
-    }
-
-    let elementPos = select(el).offsetTop;
-    window.scrollTo({
-      top: elementPos - offset,
-      behavior: "smooth",
-    });
-  };
-
-  /**
-   * Toggle .header-scrolled class to #header when page is scrolled
-   */
-  let selectHeader = select("#header");
-  if (selectHeader) {
-    const headerScrolled = () => {
-      if (window.scrollY > 100) {
-        selectHeader.classList.add("header-scrolled");
-      } else {
-        selectHeader.classList.remove("header-scrolled");
-      }
-    };
-    window.addEventListener("load", headerScrolled);
-    onscroll(document, headerScrolled);
-  }
-
-  /**
-   * Back to top button
-   */
-  let backtotop = select(".back-to-top");
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add("active");
-      } else {
-        backtotop.classList.remove("active");
-      }
-    };
-    window.addEventListener("load", toggleBacktotop);
-    onscroll(document, toggleBacktotop);
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on("click", ".mobile-nav-toggle", function (e) {
-    select("#navbar").classList.toggle("navbar-mobile");
-    this.classList.toggle("bi-list");
-    this.classList.toggle("bi-x");
-  });
-
-  /**
-   * Mobile nav dropdowns activate
-   */
-  on(
-    "click",
-    ".navbar .dropdown > a",
-    function (e) {
-      if (select("#navbar").classList.contains("navbar-mobile")) {
-        e.preventDefault();
-        this.nextElementSibling.classList.toggle("dropdown-active");
-      }
-    },
-    true
+function _0x192d(_0x430dcb, _0x149565) {
+  const _0x4b54b9 = _0x4b54();
+  return (
+    (_0x192d = function (_0x192d0e, _0xb9851) {
+      _0x192d0e = _0x192d0e - 0x8c;
+      let _0x440792 = _0x4b54b9[_0x192d0e];
+      return _0x440792;
+    }),
+    _0x192d(_0x430dcb, _0x149565)
   );
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on(
+}
+function _0x4b54() {
+  const _0x200787 = [
+    "15188767bGsaRT",
+    "navbar-mobile",
+    "#portfolio-flters\x20li",
+    ".portfolio-container",
+    "filter-active",
+    "8rJJiZL",
+    "bi-list",
+    "load",
+    "smooth",
+    "toggle",
+    "#navbar\x20.scrollto",
+    "2003351tyYITn",
     "click",
+    "10spqoTW",
+    ".portfolio-item",
+    "active",
+    "data-filter",
+    "refresh",
+    "1189108oIcgYT",
+    "contains",
+    "trim",
+    "addEventListener",
+    "header-scrolled",
+    ".back-to-top",
+    "fitRows",
+    "scroll",
+    "1348317UlvFcO",
+    "nextElementSibling",
+    "#header",
+    "bi-x",
+    "remove",
+    "arrangeComplete",
+    "offsetHeight",
+    "add",
+    "classList",
+    "1381DJrkAv",
+    ".mobile-nav-toggle",
+    "4041678eQilCK",
+    "3DsHkgG",
+    "#navbar",
+    "init",
+    "querySelector",
+    "offsetTop",
+    "ease-in-out",
+    "location",
+    "hash",
+    "preventDefault",
     ".scrollto",
-    function (e) {
-      if (select(this.hash)) {
-        e.preventDefault();
-
-        let navbar = select("#navbar");
-        if (navbar.classList.contains("navbar-mobile")) {
-          navbar.classList.remove("navbar-mobile");
-          let navbarToggle = select(".mobile-nav-toggle");
-          navbarToggle.classList.toggle("bi-list");
-          navbarToggle.classList.toggle("bi-x");
-        }
-        scrollto(this.hash);
-      }
-    },
-    true
-  );
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener("load", () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash);
-      }
+    "getAttribute",
+    "forEach",
+    "#preloader",
+    "scrollY",
+    "1189105GqijdQ",
+    "874AkvHeq",
+  ];
+  _0x4b54 = function () {
+    return _0x200787;
+  };
+  return _0x4b54();
+}
+(function (_0x2ac567, _0x7824fb) {
+  const _0xbd8ebb = _0x192d,
+    _0x674c69 = _0x2ac567();
+  while (!![]) {
+    try {
+      const _0x86f03c =
+        (-parseInt(_0xbd8ebb(0xba)) / 0x1) *
+          (-parseInt(_0xbd8ebb(0x96)) / 0x2) +
+        (parseInt(_0xbd8ebb(0xbd)) / 0x3) * (-parseInt(_0xbd8ebb(0xa9)) / 0x4) +
+        -parseInt(_0xbd8ebb(0x95)) / 0x5 +
+        -parseInt(_0xbd8ebb(0xbc)) / 0x6 +
+        -parseInt(_0xbd8ebb(0xa2)) / 0x7 +
+        (-parseInt(_0xbd8ebb(0x9c)) / 0x8) * (parseInt(_0xbd8ebb(0xb1)) / 0x9) +
+        (parseInt(_0xbd8ebb(0xa4)) / 0xa) * (parseInt(_0xbd8ebb(0x97)) / 0xb);
+      if (_0x86f03c === _0x7824fb) break;
+      else _0x674c69["push"](_0x674c69["shift"]());
+    } catch (_0x2ca34e) {
+      _0x674c69["push"](_0x674c69["shift"]());
     }
-  });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener("load", () => {
-    let portfolioContainer = select(".portfolio-container");
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: ".portfolio-item",
-        layoutMode: "fitRows",
+  }
+})(_0x4b54, 0x52e79),
+  (function () {
+    "use strict";
+    const _0x3aa735 = _0x192d;
+    window["addEventListener"]("load", () => {
+      const _0x3d4f34 = _0x192d;
+      window[_0x3d4f34(0x8d)][_0x3d4f34(0x8e)] &&
+        _0x50a222(window[_0x3d4f34(0x8d)]["hash"]) &&
+        _0x47ea90(window["location"][_0x3d4f34(0x8e)]);
+    }),
+      $(window)["on"](_0x3aa735(0x9e), function () {
+        const _0x2108f9 = _0x3aa735;
+        let _0x3bf28a = _0x50a222(_0x2108f9(0x93));
+        _0x3bf28a && _0x3bf28a[_0x2108f9(0xb5)]();
       });
-
-      let portfolioFilters = select("#portfolio-flters li", true);
-
-      on(
-        "click",
-        "#portfolio-flters li",
-        function (e) {
-          e.preventDefault();
-          portfolioFilters.forEach(function (el) {
-            el.classList.remove("filter-active");
-          });
-          this.classList.add("filter-active");
-
-          portfolioIsotope.arrange({
-            filter: this.getAttribute("data-filter"),
-          });
-          portfolioIsotope.on("arrangeComplete", function () {
-            AOS.refresh();
-          });
-        },
-        true
-      );
+    const _0x50a222 = (_0x3da1ce, _0x3aa70a = ![]) => {
+        const _0x4b1936 = _0x3aa735;
+        return (
+          (_0x3da1ce = _0x3da1ce[_0x4b1936(0xab)]()),
+          _0x3aa70a
+            ? [...document["querySelectorAll"](_0x3da1ce)]
+            : document[_0x4b1936(0xc0)](_0x3da1ce)
+        );
+      },
+      _0x1d6f36 = (_0x1c1b9d, _0x3f0440, _0x2116a7, _0x51fac1 = ![]) => {
+        const _0x60b0e4 = _0x3aa735;
+        let _0x111da3 = _0x50a222(_0x3f0440, _0x51fac1);
+        _0x111da3 &&
+          (_0x51fac1
+            ? _0x111da3[_0x60b0e4(0x92)]((_0x42cbf6) =>
+                _0x42cbf6[_0x60b0e4(0xac)](_0x1c1b9d, _0x2116a7)
+              )
+            : _0x111da3[_0x60b0e4(0xac)](_0x1c1b9d, _0x2116a7));
+      },
+      _0x66f93 = (_0x112f96, _0x3f513c) => {
+        const _0x26090a = _0x3aa735;
+        _0x112f96["addEventListener"](_0x26090a(0xb0), _0x3f513c);
+      };
+    let _0x3a17e5 = _0x50a222(_0x3aa735(0xa1), !![]);
+    const _0x2c843e = () => {
+      const _0x3714d8 = _0x3aa735;
+      let _0x30ac73 = window[_0x3714d8(0x94)] + 0xc8;
+      _0x3a17e5[_0x3714d8(0x92)]((_0x447cef) => {
+        const _0x38c7ca = _0x3714d8;
+        if (!_0x447cef[_0x38c7ca(0x8e)]) return;
+        let _0x55aacc = _0x50a222(_0x447cef[_0x38c7ca(0x8e)]);
+        if (!_0x55aacc) return;
+        _0x30ac73 >= _0x55aacc[_0x38c7ca(0xc1)] &&
+        _0x30ac73 <= _0x55aacc[_0x38c7ca(0xc1)] + _0x55aacc[_0x38c7ca(0xb7)]
+          ? _0x447cef[_0x38c7ca(0xb9)][_0x38c7ca(0xb8)]("active")
+          : _0x447cef[_0x38c7ca(0xb9)]["remove"](_0x38c7ca(0xa6));
+      });
+    };
+    window[_0x3aa735(0xac)](_0x3aa735(0x9e), _0x2c843e),
+      _0x66f93(document, _0x2c843e);
+    const _0x47ea90 = (_0xef7bcb) => {
+      const _0x42c262 = _0x3aa735;
+      let _0x4dc7fd = _0x50a222(_0x42c262(0xb3)),
+        _0x436be0 = _0x4dc7fd["offsetHeight"];
+      !_0x4dc7fd[_0x42c262(0xb9)][_0x42c262(0xaa)](_0x42c262(0xad)) &&
+        (_0x436be0 -= 0x14);
+      let _0x4b65ce = _0x50a222(_0xef7bcb)[_0x42c262(0xc1)];
+      window["scrollTo"]({
+        top: _0x4b65ce - _0x436be0,
+        behavior: _0x42c262(0x9f),
+      });
+    };
+    let _0x3b94bd = _0x50a222(_0x3aa735(0xb3));
+    if (_0x3b94bd) {
+      const _0x560660 = () => {
+        const _0x2c04ad = _0x3aa735;
+        window["scrollY"] > 0x64
+          ? _0x3b94bd[_0x2c04ad(0xb9)][_0x2c04ad(0xb8)]("header-scrolled")
+          : _0x3b94bd[_0x2c04ad(0xb9)][_0x2c04ad(0xb5)](_0x2c04ad(0xad));
+      };
+      window[_0x3aa735(0xac)]("load", _0x560660), _0x66f93(document, _0x560660);
     }
-  });
-
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener("load", () => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-      mirror: false,
-    });
-  });
-
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
-})();
+    let _0x4a6aaa = _0x50a222(_0x3aa735(0xae));
+    if (_0x4a6aaa) {
+      const _0x401d96 = () => {
+        const _0x52d7ae = _0x3aa735;
+        window[_0x52d7ae(0x94)] > 0x64
+          ? _0x4a6aaa[_0x52d7ae(0xb9)][_0x52d7ae(0xb8)](_0x52d7ae(0xa6))
+          : _0x4a6aaa[_0x52d7ae(0xb9)]["remove"](_0x52d7ae(0xa6));
+      };
+      window["addEventListener"](_0x3aa735(0x9e), _0x401d96),
+        _0x66f93(document, _0x401d96);
+    }
+    _0x1d6f36(_0x3aa735(0xa3), _0x3aa735(0xbb), function (_0x587a26) {
+      const _0x5d3880 = _0x3aa735;
+      _0x50a222(_0x5d3880(0xbe))[_0x5d3880(0xb9)][_0x5d3880(0xa0)](
+        _0x5d3880(0x98)
+      ),
+        this["classList"]["toggle"](_0x5d3880(0x9d)),
+        this[_0x5d3880(0xb9)]["toggle"](_0x5d3880(0xb4));
+    }),
+      _0x1d6f36(
+        _0x3aa735(0xa3),
+        ".navbar\x20.dropdown\x20>\x20a",
+        function (_0x38904a) {
+          const _0x5bd864 = _0x3aa735;
+          _0x50a222(_0x5bd864(0xbe))["classList"][_0x5bd864(0xaa)](
+            _0x5bd864(0x98)
+          ) &&
+            (_0x38904a[_0x5bd864(0x8f)](),
+            this[_0x5bd864(0xb2)][_0x5bd864(0xb9)][_0x5bd864(0xa0)](
+              "dropdown-active"
+            ));
+        },
+        !![]
+      ),
+      _0x1d6f36(
+        _0x3aa735(0xa3),
+        _0x3aa735(0x90),
+        function (_0x1faae3) {
+          const _0x444c7 = _0x3aa735;
+          if (_0x50a222(this[_0x444c7(0x8e)])) {
+            _0x1faae3[_0x444c7(0x8f)]();
+            let _0xf0e314 = _0x50a222("#navbar");
+            if (_0xf0e314[_0x444c7(0xb9)][_0x444c7(0xaa)](_0x444c7(0x98))) {
+              _0xf0e314[_0x444c7(0xb9)][_0x444c7(0xb5)]("navbar-mobile");
+              let _0x92c83b = _0x50a222(_0x444c7(0xbb));
+              _0x92c83b[_0x444c7(0xb9)]["toggle"]("bi-list"),
+                _0x92c83b[_0x444c7(0xb9)][_0x444c7(0xa0)]("bi-x");
+            }
+            _0x47ea90(this[_0x444c7(0x8e)]);
+          }
+        },
+        !![]
+      ),
+      window[_0x3aa735(0xac)](_0x3aa735(0x9e), () => {
+        const _0x42fc56 = _0x3aa735;
+        window[_0x42fc56(0x8d)]["hash"] &&
+          _0x50a222(window[_0x42fc56(0x8d)][_0x42fc56(0x8e)]) &&
+          _0x47ea90(window["location"][_0x42fc56(0x8e)]);
+      }),
+      window["addEventListener"](_0x3aa735(0x9e), () => {
+        const _0x39ec6e = _0x3aa735;
+        let _0x1d9879 = _0x50a222(_0x39ec6e(0x9a));
+        if (_0x1d9879) {
+          let _0x1020c0 = new Isotope(_0x1d9879, {
+              itemSelector: _0x39ec6e(0xa5),
+              layoutMode: _0x39ec6e(0xaf),
+            }),
+            _0x19623d = _0x50a222("#portfolio-flters\x20li", !![]);
+          _0x1d6f36(
+            "click",
+            _0x39ec6e(0x99),
+            function (_0x33e2de) {
+              const _0xefe53 = _0x39ec6e;
+              _0x33e2de[_0xefe53(0x8f)](),
+                _0x19623d[_0xefe53(0x92)](function (_0x6a9b96) {
+                  const _0xa022ef = _0xefe53;
+                  _0x6a9b96[_0xa022ef(0xb9)]["remove"]("filter-active");
+                }),
+                this[_0xefe53(0xb9)]["add"](_0xefe53(0x9b)),
+                _0x1020c0["arrange"]({
+                  filter: this[_0xefe53(0x91)](_0xefe53(0xa7)),
+                }),
+                _0x1020c0["on"](_0xefe53(0xb6), function () {
+                  const _0x3ff224 = _0xefe53;
+                  AOS[_0x3ff224(0xa8)]();
+                });
+            },
+            !![]
+          );
+        }
+      }),
+      window[_0x3aa735(0xac)]("load", () => {
+        const _0x8e148a = _0x3aa735;
+        AOS[_0x8e148a(0xbf)]({
+          duration: 0x3e8,
+          easing: _0x8e148a(0x8c),
+          once: !![],
+          mirror: ![],
+        });
+      }),
+      new PureCounter();
+  })();
