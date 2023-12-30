@@ -494,6 +494,7 @@ progress {
   }
 }
 
+
 .display-3 {
   font-size: calc(1.32773rem + 0.93274vw);
   font-weight: 900;
@@ -573,6 +574,7 @@ progress {
 .blockquote > :last-child {
   margin-bottom: 0;
 }
+
 
 .blockquote-footer {
   margin-top: -1rem;
@@ -19567,6 +19569,11 @@ Pricing
   box-shadow: 0 1.25rem 2.1875rem 0 rgba(241, 165, 1, 0.15);
 }
 
+/* @media (max-width: 365px) {
+  .gts_btn {
+    font-size: 12px ;
+  }
+} */
 
 
 /* Hover */
