@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Binx AI</title>
+  <title>Binx AI - Your Personal WhatsApp AI</title>
   <meta name="description"
     content="Binx AI is an innovative WhatsApp chatbot crafted by Tekcify Inc to enhance your daily communication. It brings a suite of powerful features to your fingertips, transforming your interactions into an effortless and enjoyable experience. Discover intelligent text response, voice note transcription, image to sticker conversion, voice note replies, song lyric search, and YouTube video downloads. Embrace the future of communication with Binx AI." />
   <meta name="keywords"
@@ -14,16 +14,16 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
   <meta name="theme-color" content="#ffffff" />
   <link href="vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="vendors/aos/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="vendors/remixicon/remixicon.css" />
   <link href="assets/css/theme.css" rel="stylesheet" />
 </head>
 
 <body>
   <main class="main" id="top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block"
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block w-100"
       data-navbar-on-scroll="data-navbar-on-scroll">
       <div class="container">
         <a class="navbar-brand" href="index.html"><img src="assets/img/binxx.png" height="34" alt="logo" /></a>
@@ -66,15 +66,16 @@
       </div>
     </nav>
 
-    <section style="padding-top: 7rem" id="hero">
+    <section style="padding-top: 4rem" id="hero">
       <div class="bg-holder" style="background-image: url(assets/img/hero/hero-bg.svg)"></div>
 
       <div class="container">
         <div class="row align-items-center justify-content-between">
-          <div class="col-md-5 col-lg-5  order-0 order-md-1 text-end">
+          <div class="col-md-5 col-lg-5  order-0 order-md-1 text-end mt-lg-4 mt-md-0 py-lg-4 py-md-0" data-aos="fade-left"
+            data-aos-delay="200">
             <img class="pt-7 pt-md-0 hero-img" src="assets/img/hero.png" alt="hero-header" />
           </div>
-          <div class="col-md-7 col-lg-6 text-md-start  py-6">
+          <div class="col-md-7 col-lg-6 text-md-start  py-6" data-aos="slide-right">
             <h4 class="fw-bold text-danger mb-3">
               Binx AI - Enhance Your Communication
             </h4>
@@ -87,17 +88,17 @@
                 powerful features to your fingertips, transforming your
                 interactions into an effortless and enjoyable experience.
               </p>
-              <div class="row text-md-start">
-                <div class="col-6">
+              <div class="d-flex justify-content-start text-md-start">
+                <div class="me-3">
                   <a class="btn btn-primary btn-lg me-md-4 px-md-4 py-3 mb-3 mb-md-0 border-0 primary-btn-shadow"
                                   href="https://wa.me/2349057642334?text=Hello%20Binx%20AI" role="button"
                                   style="border-radius: 35px;">Get Started</a>
                 </div>
-                <div class="col-6">
+                <div>
                   <a href="#!" role="button" data-bs-toggle="modal" data-bs-target="#popupVideo"
                                   style="border-radius: 35px;"><span
                                     class="btn btn-danger round-btn-lg rounded-circle  danger-btn-shadow">
-                                    <img src="assets/img/hero/play.svg" width="15" alt="play" /></span></a><span class="fw-medium px-2">Play Demo</span>
+                                    <img src="assets/img/hero/play.svg" width="15" alt="play" /></span></a><span class="fw-medium px-2">Learn more</span>
                 </div>
                                 
                               
@@ -851,6 +852,7 @@
   <script src="vendors/is/is.min.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
   <script src="vendors/fontawesome/all.min.js"></script>
+  <script src="vendors/aos/aos.js"></script>
   <script src="assets/js/theme.js"></script>
   <!--Start of Tawk.to Script-->
 <script type="text/javascript">
