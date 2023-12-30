@@ -1,648 +1,647 @@
-const _0x2934bf = _0x2726;
-(function (_0x1cda44, _0x274b1b) {
-  const _0x4a2a8a = _0x2726,
-    _0x46d02b = _0x1cda44();
-  while (!![]) {
-    try {
-      const _0x58351e =
-        (parseInt(_0x4a2a8a(0x81)) / 0x1) * (-parseInt(_0x4a2a8a(0xc3)) / 0x2) +
-        (-parseInt(_0x4a2a8a(0xe2)) / 0x3) * (parseInt(_0x4a2a8a(0x9e)) / 0x4) +
-        (parseInt(_0x4a2a8a(0x86)) / 0x5) * (parseInt(_0x4a2a8a(0xd8)) / 0x6) +
-        -parseInt(_0x4a2a8a(0xb7)) / 0x7 +
-        (-parseInt(_0x4a2a8a(0xd9)) / 0x8) *
-          (-parseInt(_0x4a2a8a(0xad)) / 0x9) +
-        (parseInt(_0x4a2a8a(0x9a)) / 0xa) * (parseInt(_0x4a2a8a(0xd0)) / 0xb) +
-        (parseInt(_0x4a2a8a(0xb8)) / 0xc) * (parseInt(_0x4a2a8a(0xab)) / 0xd);
-      if (_0x58351e === _0x274b1b) break;
-      else _0x46d02b["push"](_0x46d02b["shift"]());
-    } catch (_0xf045b5) {
-      _0x46d02b["push"](_0x46d02b["shift"]());
-    }
-  }
-})(_0x2cd4, 0xefe8a),
-  (publicKey = _0x2934bf(0xc7)),
-  (live = _0x2934bf(0xc5));
-function _0x2cd4() {
-  const _0x5568e3 = [
-    "log",
-    "addEventListener",
-    "error",
-    "Transaction\x20not\x20completed!",
-    "https://wa.me/2349057642334?text=Hello%20Binx%20AI",
-    "replace",
-    "Open\x20Your\x20WhatsApp!",
-    "substring",
-    "cookie",
-    "stringify",
-    "Cooldown",
-    "json",
-    "sub_number_premium",
-    "71oTksvy",
-    "Congratulations\x20🎊",
-    "split",
-    "no_days_left",
-    "now",
-    "415FzJDJs",
-    "The\x20OTP\x20code\x20is\x20invalid\x20or\x20has\x20expired.",
-    "POST",
-    "hasSubscribed=true;\x20expires=",
-    "click",
-    ";\x20path=/",
-    "Premium",
-    "success",
-    "sub_number_premium=",
-    "hasSubscribedTruly=",
-    "catch",
-    "Basic",
-    "Window\x20closed.",
-    "otp-div",
-    "BasicBasicBasic",
-    "length",
-    "submit",
-    "test",
-    "PremiumPremiumPremium",
-    "setup",
-    "1090IdXdjT",
-    "application/json",
-    "&subscription=",
-    "otp",
-    "100jSjkcq",
-    "paymentForm",
-    "continueBtn",
-    "get",
-    "Invalid\x20or\x20Expired\x20Code",
-    "phoneNumber",
-    "disabled",
-    "then",
-    "search",
-    "Error:",
-    "You\x20have\x20chosen\x20a\x20basic\x20plan",
-    "OTP\x20code\x20have\x20been\x20sent\x20to\x20your\x20whatsapp!",
-    "Please\x20wait...",
-    "156gPvDdO",
-    "failed",
-    "9VJKmSR",
-    "preventDefault",
-    "\x20user.",
-    "plan_show",
-    "successful",
-    "Payment\x20complete!",
-    "cooldown",
-    "sub_number",
-    "The\x20OTP\x20code\x20is\x20invalid\x20or\x20has\x20expired.\x20Please\x20check\x20again",
-    "numeric",
-    "1125782oYIxWg",
-    "999468owBJbb",
-    "classList",
-    "countryCode",
-    "info",
-    "Seems\x20this\x20number\x20has\x20been\x20subscribed\x20already,\x20please\x20try\x20different\x20number!",
-    ";\x20expires=",
-    "innerHTML",
-    "sub_number=",
-    "Duplicate\x20Subscription",
-    "input",
-    "Amount\x20changed",
-    "52530gSwCeT",
-    "basic",
-    "pk_test_c720d983a1e01efbbe84667533e75c04271c0a22",
-    "email",
-    "pk_live_4da031073850b87031bc9783119a7d35362cbb69",
-    "getElementById",
-    "d-none",
-    "Continue",
-    "trim",
-    "true",
-    "hasSubscribedTruly",
-    "check_duplicate",
-    "value",
-    "176770VuyPHd",
-    "amount",
-    "Code\x20Sent",
-    "remove",
-    "target",
-    "fire",
-    "/api/verify?phone=",
-    "Invalid\x20Whatsapp\x20Number",
-    "24006AzGcon",
-    "4283608mjfhpK",
-    "toUTCString",
-    "href",
-    "Reference:\x20",
-    "lastName",
-    "&plan=",
-    "plan",
-    "/api/request?phone=",
-    "Success:",
-    "73239OaHOjl",
-    "startsWith",
-    "random",
-  ];
-  _0x2cd4 = function () {
-    return _0x5568e3;
-  };
-  return _0x2cd4();
-}
-let amount = 0x493e0;
-const urlParams = new URLSearchParams(window["location"][_0x2934bf(0xa6)]),
-  plan =
-    urlParams[_0x2934bf(0xa1)](_0x2934bf(0xdf))?.["toLowerCase"]() ||
-    _0x2934bf(0xc4),
-  pls = document[_0x2934bf(0xc8)](_0x2934bf(0xb0));
-function _0x2726(_0x6c0afc, _0x1507c6) {
-  const _0x2cd4b0 = _0x2cd4();
+const _0x258fa6 = _0xac7e;
+function _0xac7e(_0x272905, _0x331d27) {
+  const _0x5a1bc2 = _0x5a1b();
   return (
-    (_0x2726 = function (_0x272604, _0x4815f9) {
-      _0x272604 = _0x272604 - 0x80;
-      let _0xaa4b7 = _0x2cd4b0[_0x272604];
-      return _0xaa4b7;
+    (_0xac7e = function (_0xac7ec0, _0x9eec51) {
+      _0xac7ec0 = _0xac7ec0 - 0x146;
+      let _0x379fa5 = _0x5a1bc2[_0xac7ec0];
+      return _0x379fa5;
     }),
-    _0x2726(_0x6c0afc, _0x1507c6)
+    _0xac7e(_0x272905, _0x331d27)
   );
 }
+(function (_0xd3d95, _0x3c75f6) {
+  const _0x2fc31d = _0xac7e,
+    _0x1f8a9e = _0xd3d95();
+  while (!![]) {
+    try {
+      const _0x395e8c =
+        parseInt(_0x2fc31d(0x14f)) / 0x1 +
+        parseInt(_0x2fc31d(0x1aa)) / 0x2 +
+        parseInt(_0x2fc31d(0x184)) / 0x3 +
+        (-parseInt(_0x2fc31d(0x181)) / 0x4) *
+          (parseInt(_0x2fc31d(0x18d)) / 0x5) +
+        -parseInt(_0x2fc31d(0x17a)) / 0x6 +
+        parseInt(_0x2fc31d(0x1a8)) / 0x7 +
+        -parseInt(_0x2fc31d(0x166)) / 0x8;
+      if (_0x395e8c === _0x3c75f6) break;
+      else _0x1f8a9e["push"](_0x1f8a9e["shift"]());
+    } catch (_0x1a8d73) {
+      _0x1f8a9e["push"](_0x1f8a9e["shift"]());
+    }
+  }
+})(_0x5a1b, 0xafaff),
+  (publicKey = _0x258fa6(0x1a0)),
+  (live = _0x258fa6(0x158));
+let amount = 0x493e0;
+const urlParams = new URLSearchParams(window["location"][_0x258fa6(0x16e)]),
+  plan =
+    urlParams["get"](_0x258fa6(0x1a1))?.[_0x258fa6(0x1a3)]() ||
+    _0x258fa6(0x173),
+  pls = document[_0x258fa6(0x19b)](_0x258fa6(0x17c));
 var sentOtp = ![];
-(btn = document["getElementById"](_0x2934bf(0xa0))),
+(btn = document[_0x258fa6(0x19b)](_0x258fa6(0x172))),
   (subPlan = "Basic"),
-  (btnText = "Continue"),
+  (btnText = _0x258fa6(0x18b)),
   (hasPaid = ![]);
 let no_days_left_ = 0x1e;
 const cookieName = "hasSubscribed",
-  cookieName2 = _0x2934bf(0xb4),
-  cookieName3 = _0x2934bf(0xcd),
-  cookieName4 = _0x2934bf(0x80),
-  cookies = document[_0x2934bf(0xed)][_0x2934bf(0x83)](";");
+  cookieName2 = "sub_number",
+  cookieName3 = _0x258fa6(0x17d),
+  cookieName4 = _0x258fa6(0x155),
+  cookies = document[_0x258fa6(0x16b)][_0x258fa6(0x15f)](";");
+function _0x5a1b() {
+  const _0x5786d6 = [
+    "firstName",
+    "phoneNumber",
+    "continueBtn",
+    "basic",
+    "Congratulations\x20🎊",
+    "classList",
+    "no_days_left",
+    "hasSubscribedTruly=true;\x20expires=",
+    "remove",
+    "d-none",
+    "2158770qzgjuj",
+    "Reference:\x20",
+    "plan_show",
+    "hasSubscribedTruly",
+    "&code=",
+    "The\x20OTP\x20code\x20is\x20invalid\x20or\x20has\x20expired.\x20Please\x20check\x20again",
+    "startsWith",
+    "411852UXHOhC",
+    "test",
+    "NGN",
+    "1572456LpVAaW",
+    "Payment\x20complete!",
+    "random",
+    "countryCode",
+    "Code\x20Sent",
+    ";\x20path=/",
+    "POST",
+    "Continue",
+    "info",
+    "40cqrKZt",
+    "\x20user.",
+    "The\x20OTP\x20code\x20is\x20invalid\x20or\x20has\x20expired.",
+    "numeric",
+    "cooldown",
+    "hasSubscribed=true;\x20expires=",
+    "successful",
+    "Invalid\x20Whatsapp\x20Number",
+    "catch",
+    "json",
+    "OTP\x20code\x20have\x20been\x20sent\x20to\x20your\x20whatsapp!",
+    "sub_number=",
+    "toUTCString",
+    "Amount\x20changed",
+    "getElementById",
+    "premium",
+    "/api/users",
+    "value",
+    "fire",
+    "pk_live_4da031073850b87031bc9783119a7d35362cbb69",
+    "plan",
+    "You\x20are\x20now\x20registered\x20as\x20",
+    "toLowerCase",
+    "Duplicate\x20Subscription",
+    "length",
+    "addEventListener",
+    "disabled",
+    "5189807DvpExm",
+    "log",
+    "1324804LMBdNl",
+    "reference",
+    "submit",
+    "location",
+    "preventDefault",
+    "Cooldown",
+    "https://wa.me/2349057642334?text=Hello%20Binx%20AI",
+    "Seems\x20this\x20number\x20has\x20been\x20subscribed\x20already,\x20please\x20try\x20different\x20number!",
+    "Please\x20wait...",
+    "Success:",
+    "Window\x20closed.",
+    "Error:",
+    "short",
+    "email",
+    "otp-div",
+    "Congratulations",
+    "Transaction\x20not\x20completed!",
+    "otp",
+    "now",
+    "233954KuYkZL",
+    "click",
+    "/api/request?phone=",
+    "true",
+    "Open\x20Your\x20WhatsApp!",
+    "floor",
+    "sub_number_premium",
+    "paymentForm",
+    "target",
+    "pk_test_c720d983a1e01efbbe84667533e75c04271c0a22",
+    "href",
+    "replace",
+    "substring",
+    "lastName",
+    "trim",
+    "PremiumPremiumPremium",
+    "split",
+    "error",
+    "hasSubscribed=",
+    "sub_number_premium=",
+    "You\x20have\x20chosen\x20a\x20basic\x20plan",
+    "Premium",
+    "then",
+    "2070360KJFARR",
+    ";\x20expires=",
+    "/api/get_amount?phone=",
+    "Invalid\x20or\x20Expired\x20Code",
+    "Basic",
+    "cookie",
+    "success",
+    "Oopps!\x20Seems\x20you\x20provided\x20an\x20invalid\x20WhatsApp\x20number",
+    "search",
+    "innerHTML",
+  ];
+  _0x5a1b = function () {
+    return _0x5786d6;
+  };
+  return _0x5a1b();
+}
 let cookieValue = null,
   subNumber = null,
   subNumber_Premium = null,
   hasSubscribedTruly = null;
-for (let i = 0x0; i < cookies[_0x2934bf(0x95)]; i++) {
-  const cookie = cookies[i][_0x2934bf(0xcb)]();
-  if (cookie[_0x2934bf(0xe3)]("hasSubscribed=")) {
-    cookieValue = cookie[_0x2934bf(0xec)](cookieName[_0x2934bf(0x95)] + 0x1);
+for (let i = 0x0; i < cookies[_0x258fa6(0x1a5)]; i++) {
+  const cookie = cookies[i][_0x258fa6(0x15d)]();
+  if (cookie[_0x258fa6(0x180)](_0x258fa6(0x161))) {
+    cookieValue = cookie[_0x258fa6(0x15b)](cookieName[_0x258fa6(0x1a5)] + 0x1);
     break;
   }
 }
-for (let i = 0x0; i < cookies["length"]; i++) {
-  const cookie = cookies[i][_0x2934bf(0xcb)]();
-  if (cookie["startsWith"]("sub_number=")) {
-    subNumber = cookie[_0x2934bf(0xec)](cookieName2[_0x2934bf(0x95)] + 0x1);
+for (let i = 0x0; i < cookies[_0x258fa6(0x1a5)]; i++) {
+  const cookie = cookies[i][_0x258fa6(0x15d)]();
+  if (cookie[_0x258fa6(0x180)]("sub_number=")) {
+    subNumber = cookie[_0x258fa6(0x15b)](cookieName2["length"] + 0x1);
     break;
   }
 }
-for (let i = 0x0; i < cookies[_0x2934bf(0x95)]; i++) {
-  const cookie = cookies[i][_0x2934bf(0xcb)]();
-  if (cookie[_0x2934bf(0xe3)](_0x2934bf(0x8f))) {
-    hasSubscribedTruly = cookie["substring"](
-      cookieName3[_0x2934bf(0x95)] + 0x1
+for (let i = 0x0; i < cookies[_0x258fa6(0x1a5)]; i++) {
+  const cookie = cookies[i][_0x258fa6(0x15d)]();
+  if (cookie[_0x258fa6(0x180)]("hasSubscribedTruly=")) {
+    hasSubscribedTruly = cookie[_0x258fa6(0x15b)](
+      cookieName3[_0x258fa6(0x1a5)] + 0x1
     );
     break;
   }
 }
-for (let i = 0x0; i < cookies["length"]; i++) {
-  const cookie = cookies[i][_0x2934bf(0xcb)]();
-  if (cookie["startsWith"](_0x2934bf(0x8e))) {
-    subNumber_Premium = cookie[_0x2934bf(0xec)](
-      cookieName4[_0x2934bf(0x95)] + 0x1
-    );
+for (let i = 0x0; i < cookies[_0x258fa6(0x1a5)]; i++) {
+  const cookie = cookies[i][_0x258fa6(0x15d)]();
+  if (cookie[_0x258fa6(0x180)](_0x258fa6(0x162))) {
+    subNumber_Premium = cookie[_0x258fa6(0x15b)](cookieName4["length"] + 0x1);
     break;
   }
 }
 switch (plan) {
-  case _0x2934bf(0xc4):
+  case _0x258fa6(0x173):
     (amount = 0x493e0),
-      (pls[_0x2934bf(0xbe)] = _0x2934bf(0xa8)),
-      (subPlan = _0x2934bf(0x91));
+      (pls[_0x258fa6(0x16f)] = "You\x20have\x20chosen\x20a\x20basic\x20plan"),
+      (subPlan = _0x258fa6(0x16a));
     break;
-  case "premium":
+  case _0x258fa6(0x19c):
     (amount = 0x927c0),
-      (pls[_0x2934bf(0xbe)] =
-        "You\x20have\x20chosen\x20a\x20premium\x20premium\x20plan"),
-      (subPlan = _0x2934bf(0x8c));
+      (pls[_0x258fa6(0x16f)] = "You\x20have\x20chosen\x20a\x20premium\x20plan"),
+      (subPlan = _0x258fa6(0x164));
     break;
   default:
     (amount = 0x493e0),
-      (pls[_0x2934bf(0xbe)] = _0x2934bf(0xa8)),
-      (subPlan = _0x2934bf(0x91));
+      (pls["innerHTML"] = _0x258fa6(0x163)),
+      (subPlan = "Basic");
     break;
 }
 function payWithPaystack(
-  _0x20dcc5,
-  _0x2a5408,
-  _0x516d0f,
-  _0x265f03,
-  _0x46fbbd
+  _0x21f59c,
+  _0x1a9819,
+  _0x20fcba,
+  _0xffdd6f,
+  _0x2cee8f
 ) {
-  const _0x22bf14 = _0x2934bf;
-  console[_0x22bf14(0xe5)](_0x265f03);
-  var _0x31104c = PaystackPop[_0x22bf14(0x99)]({
+  const _0x17dc78 = _0x258fa6;
+  console["log"](_0xffdd6f);
+  var _0x87b920 = PaystackPop["setup"]({
     key: publicKey,
-    email: _0x20dcc5,
-    amount: _0x516d0f,
-    currency: "NGN",
-    ref: "" + Math["floor"](Math[_0x22bf14(0xe4)]() * 0x3b9aca00 + 0x1),
-    callback: function (_0x1486fe) {
-      const _0x5ab452 = _0x22bf14,
-        _0x5283da = new Date(),
-        _0x238c1d = {
-          day: _0x5ab452(0xb6),
-          month: "short",
-          year: _0x5ab452(0xb6),
+    email: _0x21f59c,
+    amount: _0x20fcba,
+    currency: _0x17dc78(0x183),
+    ref:
+      "" + Math[_0x17dc78(0x154)](Math[_0x17dc78(0x186)]() * 0x3b9aca00 + 0x1),
+    callback: function (_0x3e5730) {
+      const _0x1ac077 = _0x17dc78,
+        _0xf20783 = new Date(),
+        _0x3a1900 = {
+          day: _0x1ac077(0x190),
+          month: _0x1ac077(0x148),
+          year: _0x1ac077(0x190),
         },
-        _0x1dc962 = _0x5283da["toLocaleDateString"]("en-US", _0x238c1d);
-      console[_0x5ab452(0xe5)](_0x1486fe),
-        fetch("/api/users", {
-          method: _0x5ab452(0x88),
-          headers: { "Content-Type": _0x5ab452(0x9b) },
-          body: JSON[_0x5ab452(0xee)]({
-            email: _0x20dcc5,
-            subscription: _0x265f03,
-            phone: _0x2a5408,
-            no_days_left: _0x46fbbd,
+        _0x38a71e = _0xf20783["toLocaleDateString"]("en-US", _0x3a1900);
+      console["log"](_0x3e5730),
+        fetch(_0x1ac077(0x19d), {
+          method: _0x1ac077(0x18a),
+          headers: { "Content-Type": "application/json" },
+          body: JSON["stringify"]({
+            email: _0x21f59c,
+            subscription: _0xffdd6f,
+            phone: _0x1a9819,
+            no_days_left: _0x2cee8f,
           }),
         })
-          [_0x5ab452(0xa5)]((_0x10f3ca) => _0x10f3ca[_0x5ab452(0xf0)]())
-          [_0x5ab452(0xa5)]((_0x333072) =>
-            console["log"](_0x5ab452(0xe1), _0x333072)
+          [_0x1ac077(0x165)]((_0xf15d4e) => _0xf15d4e[_0x1ac077(0x196)]())
+          [_0x1ac077(0x165)]((_0x23f615) =>
+            console[_0x1ac077(0x1a9)](_0x1ac077(0x1b3), _0x23f615)
           )
-          [_0x5ab452(0x90)]((_0x5a2dd7) => {
-            const _0x5de36c = _0x5ab452;
-            console[_0x5de36c(0xe7)](_0x5de36c(0xa7), _0x5a2dd7);
+          [_0x1ac077(0x195)]((_0x4f34d7) => {
+            const _0x248033 = _0x1ac077;
+            console[_0x248033(0x160)](_0x248033(0x147), _0x4f34d7);
           }),
-        Swal[_0x5ab452(0xd5)]({
-          icon: "success",
-          title: _0x5ab452(0xb2),
-          text: _0x5ab452(0xdc) + _0x1486fe["reference"],
-        })["then"]((_0x1737a9) => {
-          const _0x39ac28 = _0x5ab452;
+        Swal["fire"]({
+          icon: _0x1ac077(0x16c),
+          title: _0x1ac077(0x185),
+          text: _0x1ac077(0x17b) + _0x3e5730[_0x1ac077(0x1ab)],
+        })[_0x1ac077(0x165)]((_0x3d2b43) => {
+          const _0x582684 = _0x1ac077;
           (hasPaid = !![]),
-            (btn[_0x39ac28(0xa4)] = !![]),
-            (btnText = _0x39ac28(0xaa)),
-            (btn[_0x39ac28(0xbe)] = btnText),
+            (btn["disabled"] = !![]),
+            (btnText = _0x582684(0x1b2)),
+            (btn[_0x582684(0x16f)] = btnText),
             (document["cookie"] =
-              _0x39ac28(0x89) +
-              new Date(
-                Date[_0x39ac28(0x85)]() + _0x46fbbd * 0x18 * 0x3c * 0x3c * 0x3e8
-              )["toUTCString"]() +
-              _0x39ac28(0x8b)),
-            console[_0x39ac28(0xe5)](_0x39ac28(0xdf), _0x265f03);
-          _0x265f03 == _0x39ac28(0x91) &&
-            (document[_0x39ac28(0xed)] =
-              "sub_number=" +
-              _0x2a5408 +
-              ";\x20expires=" +
-              new Date(Date["now"]() + _0x46fbbd * 0x18 * 0x3c * 0x3c * 0x3e8)[
-                _0x39ac28(0xda)
+              _0x582684(0x192) +
+              new Date(Date["now"]() + _0x2cee8f * 0x18 * 0x3c * 0x3c * 0x3e8)[
+                "toUTCString"
               ]() +
-              _0x39ac28(0x8b));
-          _0x265f03 == _0x39ac28(0x8c) &&
-            ((document[_0x39ac28(0xed)] =
-              _0x39ac28(0xbf) +
-              _0x2a5408 +
-              ";\x20expires=" +
+              _0x582684(0x189)),
+            console["log"](_0x582684(0x1a1), _0xffdd6f);
+          _0xffdd6f == "Basic" &&
+            (document[_0x582684(0x16b)] =
+              _0x582684(0x198) +
+              _0x1a9819 +
+              _0x582684(0x167) +
               new Date(
-                Date[_0x39ac28(0x85)]() + _0x46fbbd * 0x18 * 0x3c * 0x3c * 0x3e8
+                Date[_0x582684(0x14e)]() +
+                  _0x2cee8f * 0x18 * 0x3c * 0x3c * 0x3e8
+              )[_0x582684(0x199)]() +
+              ";\x20path=/");
+          _0xffdd6f == "Premium" &&
+            ((document[_0x582684(0x16b)] =
+              "sub_number=" +
+              _0x1a9819 +
+              _0x582684(0x167) +
+              new Date(
+                Date[_0x582684(0x14e)]() +
+                  _0x2cee8f * 0x18 * 0x3c * 0x3c * 0x3e8
+              )[_0x582684(0x199)]() +
+              _0x582684(0x189)),
+            (document[_0x582684(0x16b)] =
+              _0x582684(0x162) +
+              _0x1a9819 +
+              _0x582684(0x167) +
+              new Date(
+                Date[_0x582684(0x14e)]() +
+                  _0x2cee8f * 0x18 * 0x3c * 0x3c * 0x3e8
               )["toUTCString"]() +
-              ";\x20path=/"),
-            (document["cookie"] =
-              _0x39ac28(0x8e) +
-              _0x2a5408 +
-              _0x39ac28(0xbd) +
-              new Date(
-                Date[_0x39ac28(0x85)]() + _0x46fbbd * 0x18 * 0x3c * 0x3c * 0x3e8
-              )[_0x39ac28(0xda)]() +
-              _0x39ac28(0x8b)));
-          const _0x2aeb59 = _0x39ac28(0xe0) + _0x2a5408;
-          fetch(_0x2aeb59)
-            [_0x39ac28(0xa5)]((_0x4c74e4) => _0x4c74e4[_0x39ac28(0xf0)]())
-            [_0x39ac28(0xa5)]((_0x3395b4) => {
-              const _0x238b8a = _0x39ac28;
-              console["log"](_0x3395b4);
-              if (_0x3395b4[_0x238b8a(0xb1)] === _0x238b8a(0xeb))
-                document[_0x238b8a(0xc8)]("otp-div")[_0x238b8a(0xb9)][
-                  _0x238b8a(0xd3)
-                ](_0x238b8a(0xc9)),
-                  Swal["fire"]({
-                    icon: _0x238b8a(0x8d),
-                    title: _0x238b8a(0xd2),
-                    text: "OTP\x20code\x20have\x20been\x20sent\x20to\x20your\x20whatsapp!",
-                  })[_0x238b8a(0xa5)]((_0x1651b7) => {
-                    const _0x4d6840 = _0x238b8a;
-                    (btn[_0x4d6840(0xa4)] = ![]),
-                      (btnText = _0x4d6840(0xca)),
-                      (btn[_0x4d6840(0xbe)] = btnText),
+              _0x582684(0x189)));
+          const _0x34ec4a = "/api/request?phone=" + _0x1a9819;
+          fetch(_0x34ec4a)
+            ["then"]((_0x2bce7f) => _0x2bce7f["json"]())
+            ["then"]((_0x54ad34) => {
+              const _0x24c172 = _0x582684;
+              console[_0x24c172(0x1a9)](_0x54ad34);
+              if (_0x54ad34[_0x24c172(0x193)] === _0x24c172(0x153))
+                document[_0x24c172(0x19b)](_0x24c172(0x14a))[_0x24c172(0x175)][
+                  _0x24c172(0x178)
+                ](_0x24c172(0x179)),
+                  Swal[_0x24c172(0x19f)]({
+                    icon: _0x24c172(0x16c),
+                    title: _0x24c172(0x188),
+                    text: _0x24c172(0x197),
+                  })[_0x24c172(0x165)]((_0x1778d8) => {
+                    const _0x3a950c = _0x24c172;
+                    (btn[_0x3a950c(0x1a7)] = ![]),
+                      (btnText = _0x3a950c(0x18b)),
+                      (btn[_0x3a950c(0x16f)] = btnText),
                       (sentOtp = !![]);
                   });
               else
-                _0x3395b4["cooldown"]
-                  ? Swal[_0x238b8a(0xd5)]({
-                      icon: _0x238b8a(0xbb),
-                      title: _0x238b8a(0xef),
-                      text: _0x3395b4["cooldown"],
+                _0x54ad34[_0x24c172(0x191)]
+                  ? Swal[_0x24c172(0x19f)]({
+                      icon: _0x24c172(0x18c),
+                      title: _0x24c172(0x1af),
+                      text: _0x54ad34[_0x24c172(0x191)],
                     })
-                  : Swal[_0x238b8a(0xd5)]({
-                      icon: _0x238b8a(0xe7),
-                      title: _0x238b8a(0xd7),
-                      text: "Oopps!\x20Seems\x20you\x20provided\x20an\x20invalid\x20WhatsApp\x20number",
-                    })[_0x238b8a(0xa5)]((_0xd8edb0) => {
-                      const _0x446e08 = _0x238b8a;
-                      (btn[_0x446e08(0xa4)] = ![]),
-                        (btnText = _0x446e08(0xca)),
-                        (btn[_0x446e08(0xbe)] = btnText),
+                  : Swal[_0x24c172(0x19f)]({
+                      icon: _0x24c172(0x160),
+                      title: _0x24c172(0x194),
+                      text: _0x24c172(0x16d),
+                    })[_0x24c172(0x165)]((_0x1224a7) => {
+                      const _0x78689b = _0x24c172;
+                      (btn[_0x78689b(0x1a7)] = ![]),
+                        (btnText = _0x78689b(0x18b)),
+                        (btn[_0x78689b(0x16f)] = btnText),
                         (sentOtp = ![]);
                     });
-              console[_0x238b8a(0xe5)](_0x3395b4);
+              console[_0x24c172(0x1a9)](_0x54ad34);
             })
-            [_0x39ac28(0x90)]((_0x18d761) => {
-              const _0x3bbf1e = _0x39ac28;
-              console[_0x3bbf1e(0xe7)](_0x18d761);
+            [_0x582684(0x195)]((_0x4ead67) => {
+              const _0xac4d6e = _0x582684;
+              console[_0xac4d6e(0x160)](_0x4ead67);
             });
         });
     },
     onClose: function () {
-      const _0x1bc832 = _0x22bf14;
-      Swal[_0x1bc832(0xd5)]({
-        icon: _0x1bc832(0xe7),
-        title: _0x1bc832(0xe8),
-        text: _0x1bc832(0x92),
+      const _0x182931 = _0x17dc78;
+      Swal[_0x182931(0x19f)]({
+        icon: _0x182931(0x160),
+        title: _0x182931(0x14c),
+        text: _0x182931(0x146),
       });
     },
   });
-  _0x31104c["openIframe"]();
+  _0x87b920["openIframe"]();
 }
-const phoneField = document[_0x2934bf(0xc8)](_0x2934bf(0xa3));
-phoneField[_0x2934bf(0xe6)](_0x2934bf(0xc1), function (_0x19dd74) {
-  const _0x1c0e89 = _0x2934bf,
-    _0x34e48f = _0x19dd74[_0x1c0e89(0xd4)][_0x1c0e89(0xcf)],
-    _0x353106 = _0x34e48f[_0x1c0e89(0xea)](/\D/g, "");
-  _0x19dd74[_0x1c0e89(0xd4)]["value"] = _0x353106;
+const phoneField = document[_0x258fa6(0x19b)](_0x258fa6(0x171));
+phoneField[_0x258fa6(0x1a6)]("input", function (_0x26b6af) {
+  const _0x5c7676 = _0x258fa6,
+    _0x12d067 = _0x26b6af[_0x5c7676(0x157)][_0x5c7676(0x19e)],
+    _0x12e565 = _0x12d067[_0x5c7676(0x15a)](/\D/g, "");
+  _0x26b6af["target"][_0x5c7676(0x19e)] = _0x12e565;
 }),
-  document["getElementById"](_0x2934bf(0x9f))[_0x2934bf(0xe6)](
-    _0x2934bf(0x96),
-    async function (_0x4aea6d) {
-      const _0x5584dc = _0x2934bf,
-        _0x316385 = document["getElementById"]("firstName")[_0x5584dc(0xcf)],
-        _0x7c5f72 = document[_0x5584dc(0xc8)](_0x5584dc(0xdd))[_0x5584dc(0xcf)],
-        _0x7d7f50 = _0x316385 + "\x20" + _0x7c5f72,
-        _0x3b2761 = document[_0x5584dc(0xc8)](_0x5584dc(0xc6))[_0x5584dc(0xcf)],
-        _0x5d685f = document[_0x5584dc(0xc8)](_0x5584dc(0xa3))[_0x5584dc(0xcf)][
-          _0x5584dc(0xea)
+  document[_0x258fa6(0x19b)](_0x258fa6(0x156))[_0x258fa6(0x1a6)](
+    _0x258fa6(0x1ac),
+    async function (_0x4328d7) {
+      const _0x4485e2 = _0x258fa6,
+        _0x4d5a4c = document[_0x4485e2(0x19b)](_0x4485e2(0x170))[
+          _0x4485e2(0x19e)
+        ],
+        _0x2838bc = document[_0x4485e2(0x19b)](_0x4485e2(0x15c))[
+          _0x4485e2(0x19e)
+        ],
+        _0x2db552 = _0x4d5a4c + "\x20" + _0x2838bc,
+        _0xfc0b32 = document["getElementById"](_0x4485e2(0x149))["value"],
+        _0x354194 = document[_0x4485e2(0x19b)]("phoneNumber")[_0x4485e2(0x19e)][
+          "replace"
         ](/^0+/, ""),
-        _0x44130f = document[_0x5584dc(0xc8)](_0x5584dc(0xba))["value"],
-        _0x7d46ba = document[_0x5584dc(0xc8)]("otp-div"),
-        _0xa786cd = document[_0x5584dc(0xc8)](_0x5584dc(0x9d))[_0x5584dc(0xcf)],
-        _0xd2fcc8 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        _0x352e75 = document[_0x4485e2(0x19b)](_0x4485e2(0x187))[
+          _0x4485e2(0x19e)
+        ],
+        _0x1efed9 = document[_0x4485e2(0x19b)]("otp-div"),
+        _0x364c8c = document["getElementById"](_0x4485e2(0x14d))["value"],
+        _0x296bc8 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (
-        _0x316385[_0x5584dc(0xcb)]() !== "" &&
-        _0x7c5f72[_0x5584dc(0xcb)]() !== "" &&
-        _0x5d685f[_0x5584dc(0xcb)]() !== "" &&
-        _0xd2fcc8[_0x5584dc(0x97)](_0x3b2761)
+        _0x4d5a4c[_0x4485e2(0x15d)]() !== "" &&
+        _0x2838bc["trim"]() !== "" &&
+        _0x354194[_0x4485e2(0x15d)]() !== "" &&
+        _0x296bc8[_0x4485e2(0x182)](_0xfc0b32)
       ) {
-        _0x4aea6d[_0x5584dc(0xae)]();
-        const _0xfb64c8 = _0x44130f + _0x5d685f["trim"]();
-        console[_0x5584dc(0xe5)](
+        _0x4328d7[_0x4485e2(0x1ae)]();
+        const _0x2a4c77 = _0x352e75 + _0x354194[_0x4485e2(0x15d)]();
+        console["log"](
           subNumber,
           subNumber_Premium,
           hasSubscribedTruly,
           cookieValue
         );
-        let _0x2f1bc4 = ![];
-        subPlan == _0x5584dc(0x8c) &&
-          (console[_0x5584dc(0xe5)](_0x5584dc(0x98)),
-          cookieValue == _0x5584dc(0xcc) &&
-            (hasSubscribedTruly == _0x5584dc(0xcc)) &
-              (subNumber_Premium == _0xfb64c8) &&
-            ((_0x2f1bc4 = !![]), console[_0x5584dc(0xe5)](!![])));
-        subPlan == _0x5584dc(0x91) &&
-          (console["log"](_0x5584dc(0x94)),
-          cookieValue == "true" &&
-            (subNumber == _0xfb64c8) &
-              (hasSubscribedTruly == _0x5584dc(0xcc)) &&
-            ((_0x2f1bc4 = !![]), console[_0x5584dc(0xe5)](!![])));
-        console[_0x5584dc(0xe5)](_0x5584dc(0xce), _0x2f1bc4);
-        if (_0x2f1bc4 == !![])
-          Swal["fire"]({
-            icon: _0x5584dc(0xbb),
-            title: _0x5584dc(0xc0),
-            text: _0x5584dc(0xbc),
+        let _0x290ad7 = ![];
+        subPlan == "Premium" &&
+          (console[_0x4485e2(0x1a9)](_0x4485e2(0x15e)),
+          cookieValue == _0x4485e2(0x152) &&
+            (hasSubscribedTruly == "true") & (subNumber_Premium == _0x2a4c77) &&
+            ((_0x290ad7 = !![]), console[_0x4485e2(0x1a9)](!![])));
+        subPlan == _0x4485e2(0x16a) &&
+          (console["log"]("BasicBasicBasic"),
+          cookieValue == _0x4485e2(0x152) &&
+            (subNumber == _0x2a4c77) & (hasSubscribedTruly == "true") &&
+            ((_0x290ad7 = !![]), console[_0x4485e2(0x1a9)](!![])));
+        console[_0x4485e2(0x1a9)]("check_duplicate", _0x290ad7);
+        if (_0x290ad7 == !![])
+          Swal[_0x4485e2(0x19f)]({
+            icon: "info",
+            title: "Duplicate\x20Subscription",
+            text: _0x4485e2(0x1b1),
           });
         else {
-          let _0x1dd357 = ![];
-          subPlan == _0x5584dc(0x91) &&
+          let _0xa51ed9 = ![];
+          subPlan == _0x4485e2(0x16a) &&
             !hasPaid &&
-            subNumber != _0xfb64c8 &&
-            (_0x1dd357 = !![]);
-          subPlan == "Premium" &&
+            subNumber != _0x2a4c77 &&
+            (_0xa51ed9 = !![]);
+          subPlan == _0x4485e2(0x164) &&
             !hasPaid &&
-            subNumber_Premium != _0xfb64c8 &&
-            (_0x1dd357 = !![]);
-          if (_0x1dd357 == !![]) {
-            let _0x313d5b, _0x416564;
-            await fetch(
-              "/api/get_amount?phone=" + _0xfb64c8 + _0x5584dc(0xde) + subPlan
-            )
-              [_0x5584dc(0xa5)]((_0x5555a6) => _0x5555a6["json"]())
-              [_0x5584dc(0xa5)]((_0xe90c5e) => {
-                const _0x5d1a0c = _0x5584dc;
-                _0xe90c5e["status"] == 0xc8 &&
-                  _0xe90c5e["failed"] == ![] &&
-                  (console["log"](_0x5d1a0c(0xc2)),
-                  (_0x313d5b = _0xe90c5e[_0x5d1a0c(0xd1)]),
-                  (_0x416564 = _0xe90c5e[_0x5d1a0c(0x84)]),
-                  (no_days_left_ = _0xe90c5e[_0x5d1a0c(0x84)])),
-                  console[_0x5d1a0c(0xe5)](_0x5d1a0c(0xe1), _0xe90c5e);
+            subNumber_Premium != _0x2a4c77 &&
+            (_0xa51ed9 = !![]);
+          if (_0xa51ed9 == !![]) {
+            let _0x43082e, _0x1cb605;
+            await fetch(_0x4485e2(0x168) + _0x2a4c77 + "&plan=" + subPlan)
+              [_0x4485e2(0x165)]((_0x368a0b) => _0x368a0b["json"]())
+              [_0x4485e2(0x165)]((_0x3d447b) => {
+                const _0x276743 = _0x4485e2;
+                _0x3d447b["status"] == 0xc8 &&
+                  _0x3d447b["failed"] == ![] &&
+                  (console[_0x276743(0x1a9)](_0x276743(0x19a)),
+                  (_0x43082e = _0x3d447b["amount"]),
+                  (_0x1cb605 = _0x3d447b[_0x276743(0x176)]),
+                  (no_days_left_ = _0x3d447b["no_days_left"])),
+                  console[_0x276743(0x1a9)](_0x276743(0x1b3), _0x3d447b);
               })
-              [_0x5584dc(0x90)]((_0x4cf11a) => {
-                const _0x580361 = _0x5584dc;
-                console[_0x580361(0xe7)](_0x580361(0xa7), _0x4cf11a);
+              [_0x4485e2(0x195)]((_0x3110fd) => {
+                const _0x2f5159 = _0x4485e2;
+                console[_0x2f5159(0x160)]("Error:", _0x3110fd);
               }),
-              console[_0x5584dc(0xe5)](_0x313d5b),
-              !_0x313d5b && (_0x313d5b = amount),
-              !_0x416564 && (_0x416564 = 0x1e),
-              console[_0x5584dc(0xe5)](_0x313d5b),
-              console["log"](_0x416564),
+              console["log"](_0x43082e),
+              !_0x43082e && (_0x43082e = amount),
+              !_0x1cb605 && (_0x1cb605 = 0x1e),
+              console[_0x4485e2(0x1a9)](_0x43082e),
+              console[_0x4485e2(0x1a9)](_0x1cb605),
               payWithPaystack(
-                _0x3b2761,
-                _0xfb64c8,
-                _0x313d5b,
+                _0xfc0b32,
+                _0x2a4c77,
+                _0x43082e,
                 subPlan,
-                _0x416564
+                _0x1cb605
               );
           }
         }
-        let _0x18a7c = ![];
-        subPlan == "Basic" &&
+        let _0x446d58 = ![];
+        subPlan == _0x4485e2(0x16a) &&
           hasPaid &&
-          subNumber != _0xfb64c8 &&
-          (_0x18a7c = !![]);
-        subPlan == _0x5584dc(0x8c) &&
+          subNumber != _0x2a4c77 &&
+          (_0x446d58 = !![]);
+        subPlan == "Premium" &&
           hasPaid &&
-          subNumber_Premium != _0xfb64c8 &&
-          (_0x18a7c = !![]);
-        let _0x415408 = ![];
-        subPlan == "Basic" && subNumber == _0xfb64c8 && (_0x415408 = !![]);
-        subPlan == _0x5584dc(0x8c) &&
-          subNumber_Premium == _0xfb64c8 &&
-          (_0x415408 = !![]);
-        if (_0x18a7c == !![] || (hasPaid && !hasSubscribedTruly)) {
+          subNumber_Premium != _0x2a4c77 &&
+          (_0x446d58 = !![]);
+        let _0xe30c51 = ![];
+        subPlan == _0x4485e2(0x16a) &&
+          subNumber == _0x2a4c77 &&
+          (_0xe30c51 = !![]);
+        subPlan == _0x4485e2(0x164) &&
+          subNumber_Premium == _0x2a4c77 &&
+          (_0xe30c51 = !![]);
+        if (_0x446d58 == !![] || (hasPaid && !hasSubscribedTruly)) {
           if (!sentOtp) {
-            (btn[_0x5584dc(0xa4)] = !![]),
+            (btn["disabled"] = !![]),
               (btnText = "Please\x20wait..."),
-              (btn[_0x5584dc(0xbe)] = btnText),
-              (document[_0x5584dc(0xed)] =
-                _0x5584dc(0x89) +
-                new Date(
-                  Date[_0x5584dc(0x85)]() +
-                    no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
-                )[_0x5584dc(0xda)]() +
-                _0x5584dc(0x8b));
-            subPlan == _0x5584dc(0x91) &&
+              (btn["innerHTML"] = btnText),
               (document["cookie"] =
-                "sub_number=" +
-                _0x5d685f +
-                _0x5584dc(0xbd) +
+                "hasSubscribed=true;\x20expires=" +
                 new Date(
-                  Date[_0x5584dc(0x85)]() +
+                  Date[_0x4485e2(0x14e)]() +
                     no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
                 )["toUTCString"]() +
-                _0x5584dc(0x8b));
-            subPlan == _0x5584dc(0x8c) &&
-              ((document["cookie"] =
-                _0x5584dc(0xbf) +
-                _0x5d685f +
-                _0x5584dc(0xbd) +
+                ";\x20path=/");
+            subPlan == "Basic" &&
+              (document[_0x4485e2(0x16b)] =
+                _0x4485e2(0x198) +
+                _0x354194 +
+                _0x4485e2(0x167) +
                 new Date(
-                  Date[_0x5584dc(0x85)]() +
-                    no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
-                )["toUTCString"]() +
-                _0x5584dc(0x8b)),
-              (document[_0x5584dc(0xed)] =
-                "sub_number_premium=" +
-                _0x5d685f +
-                ";\x20expires=" +
+                  Date["now"]() + no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
+                )[_0x4485e2(0x199)]() +
+                ";\x20path=/");
+            subPlan == "Premium" &&
+              ((document[_0x4485e2(0x16b)] =
+                _0x4485e2(0x198) +
+                _0x354194 +
+                _0x4485e2(0x167) +
                 new Date(
-                  Date[_0x5584dc(0x85)]() +
+                  Date["now"]() + no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
+                )[_0x4485e2(0x199)]() +
+                _0x4485e2(0x189)),
+              (document["cookie"] =
+                _0x4485e2(0x162) +
+                _0x354194 +
+                _0x4485e2(0x167) +
+                new Date(
+                  Date[_0x4485e2(0x14e)]() +
                     no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
-                )["toUTCString"]() +
-                ";\x20path=/"));
-            const _0x433277 = "/api/request?phone=" + _0x5d685f;
-            fetch(_0x433277)
-              ["then"]((_0x5f187d) => _0x5f187d[_0x5584dc(0xf0)]())
-              [_0x5584dc(0xa5)]((_0x5ae5e4) => {
-                const _0x56ce6a = _0x5584dc;
-                console[_0x56ce6a(0xe5)](_0x5ae5e4);
-                if (_0x5ae5e4[_0x56ce6a(0xb1)] === _0x56ce6a(0xeb))
-                  document[_0x56ce6a(0xc8)](_0x56ce6a(0x93))[_0x56ce6a(0xb9)][
-                    "remove"
-                  ](_0x56ce6a(0xc9)),
-                    Swal[_0x56ce6a(0xd5)]({
-                      icon: _0x56ce6a(0x8d),
-                      title: "Code\x20Sent",
-                      text: _0x56ce6a(0xa9),
-                    })[_0x56ce6a(0xa5)]((_0x14bac0) => {
-                      const _0x2b3a91 = _0x56ce6a;
-                      (btn[_0x2b3a91(0xa4)] = ![]),
-                        (btnText = _0x2b3a91(0xca)),
-                        (btn[_0x2b3a91(0xbe)] = btnText),
+                )[_0x4485e2(0x199)]() +
+                _0x4485e2(0x189)));
+            const _0x5a81ef = _0x4485e2(0x151) + _0x354194;
+            fetch(_0x5a81ef)
+              ["then"]((_0x54f96f) => _0x54f96f[_0x4485e2(0x196)]())
+              [_0x4485e2(0x165)]((_0x22c221) => {
+                const _0x988e7b = _0x4485e2;
+                console[_0x988e7b(0x1a9)](_0x22c221);
+                if (_0x22c221["successful"] === _0x988e7b(0x153))
+                  document[_0x988e7b(0x19b)](_0x988e7b(0x14a))[
+                    _0x988e7b(0x175)
+                  ][_0x988e7b(0x178)]("d-none"),
+                    Swal[_0x988e7b(0x19f)]({
+                      icon: _0x988e7b(0x16c),
+                      title: _0x988e7b(0x188),
+                      text: "OTP\x20code\x20have\x20been\x20sent\x20to\x20your\x20whatsapp!",
+                    })[_0x988e7b(0x165)]((_0x4258e0) => {
+                      const _0x3a7c3a = _0x988e7b;
+                      (btn["disabled"] = ![]),
+                        (btnText = _0x3a7c3a(0x18b)),
+                        (btn[_0x3a7c3a(0x16f)] = btnText),
                         (sentOtp = !![]);
                     });
                 else
-                  _0x5ae5e4["cooldown"]
-                    ? Swal[_0x56ce6a(0xd5)]({
-                        icon: "info",
-                        title: _0x56ce6a(0xef),
-                        text: _0x5ae5e4[_0x56ce6a(0xb3)],
+                  _0x22c221["cooldown"]
+                    ? Swal["fire"]({
+                        icon: _0x988e7b(0x18c),
+                        title: "Cooldown",
+                        text: _0x22c221["cooldown"],
                       })
-                    : Swal[_0x56ce6a(0xd5)]({
+                    : Swal[_0x988e7b(0x19f)]({
                         icon: "error",
-                        title: _0x56ce6a(0xd7),
-                        text: "Oopps!\x20Seems\x20you\x20provided\x20an\x20invalid\x20WhatsApp\x20number",
-                      })["then"]((_0x536976) => {
-                        const _0x55b152 = _0x56ce6a;
-                        (btn[_0x55b152(0xa4)] = ![]),
-                          (btnText = _0x55b152(0xca)),
-                          (btn[_0x55b152(0xbe)] = btnText),
+                        title: _0x988e7b(0x194),
+                        text: _0x988e7b(0x16d),
+                      })["then"]((_0x532700) => {
+                        const _0x22c3ae = _0x988e7b;
+                        (btn["disabled"] = ![]),
+                          (btnText = _0x22c3ae(0x18b)),
+                          (btn[_0x22c3ae(0x16f)] = btnText),
                           (sentOtp = ![]);
                       });
-                console[_0x56ce6a(0xe5)](_0x5ae5e4);
+                console[_0x988e7b(0x1a9)](_0x22c221);
               })
-              [_0x5584dc(0x90)]((_0x286f0d) => {
-                console["error"](_0x286f0d);
+              [_0x4485e2(0x195)]((_0x767fa6) => {
+                const _0x7de1c9 = _0x4485e2;
+                console[_0x7de1c9(0x160)](_0x767fa6);
               });
           }
         } else
           hasPaid &&
-            _0x415408 == !![] &&
-            hasSubscribedTruly == "true" &&
-            Swal["fire"]({
-              icon: _0x5584dc(0xbb),
-              title: _0x5584dc(0xc0),
-              text: _0x5584dc(0xbc),
+            _0xe30c51 == !![] &&
+            hasSubscribedTruly == _0x4485e2(0x152) &&
+            Swal[_0x4485e2(0x19f)]({
+              icon: _0x4485e2(0x18c),
+              title: _0x4485e2(0x1a4),
+              text: "Seems\x20this\x20number\x20has\x20been\x20subscribed\x20already,\x20please\x20try\x20different\x20number!",
             });
       }
     }
   ),
-  btn[_0x2934bf(0xe6)](_0x2934bf(0x8a), () => {
-    const _0xf250fc = _0x2934bf,
-      _0x3a7339 = document[_0xf250fc(0xc8)]("otp")[_0xf250fc(0xcf)],
-      _0x472772 = document["getElementById"]("phoneNumber")[_0xf250fc(0xcf)][
-        _0xf250fc(0xea)
-      ](/^0+/, ""),
-      _0x4850cb = document["getElementById"]("countryCode")[_0xf250fc(0xcf)],
-      _0x575024 =
-        _0x4850cb[_0xf250fc(0xea)]("+", "") + _0x472772[_0xf250fc(0xcb)]();
+  btn[_0x258fa6(0x1a6)](_0x258fa6(0x150), () => {
+    const _0x40492b = _0x258fa6,
+      _0x4c51e7 = document[_0x40492b(0x19b)](_0x40492b(0x14d))[
+        _0x40492b(0x19e)
+      ],
+      _0x46a2c7 = document[_0x40492b(0x19b)](_0x40492b(0x171))[
+        _0x40492b(0x19e)
+      ][_0x40492b(0x15a)](/^0+/, ""),
+      _0x3df45e = document[_0x40492b(0x19b)](_0x40492b(0x187))[
+        _0x40492b(0x19e)
+      ],
+      _0x5052eb = _0x3df45e["replace"]("+", "") + _0x46a2c7[_0x40492b(0x15d)]();
     if (sentOtp) {
-      if (_0x3a7339[_0xf250fc(0x95)] < 0x6)
-        Swal[_0xf250fc(0xd5)]({
-          icon: _0xf250fc(0xe7),
-          title: _0xf250fc(0xa2),
-          text: _0xf250fc(0xb5),
+      if (_0x4c51e7[_0x40492b(0x1a5)] < 0x6)
+        Swal[_0x40492b(0x19f)]({
+          icon: _0x40492b(0x160),
+          title: _0x40492b(0x169),
+          text: _0x40492b(0x17f),
         });
       else {
-        const _0x3853e5 =
-          _0xf250fc(0xd6) +
-          _0x575024 +
-          _0xf250fc(0x9c) +
+        const _0x556099 =
+          "/api/verify?phone=" +
+          _0x5052eb +
+          "&subscription=" +
           subPlan +
-          "&code=" +
-          _0x3a7339[_0xf250fc(0xcb)]();
-        fetch(_0x3853e5)
-          [_0xf250fc(0xa5)]((_0x490930) => _0x490930[_0xf250fc(0xf0)]())
-          ["then"]((_0x1b2f1f) => {
-            const _0x40e873 = _0xf250fc;
-            console[_0x40e873(0xe5)](_0x1b2f1f);
-            if (
-              _0x1b2f1f[_0x40e873(0xac)] === "Invalid\x20or\x20Expired\x20Code"
-            )
-              Swal[_0x40e873(0xd5)]({
-                icon: _0x40e873(0xe7),
-                title: _0x40e873(0xa2),
-                text: _0x40e873(0x87),
+          _0x40492b(0x17e) +
+          _0x4c51e7[_0x40492b(0x15d)]();
+        fetch(_0x556099)
+          ["then"]((_0x14322d) => _0x14322d[_0x40492b(0x196)]())
+          [_0x40492b(0x165)]((_0x1fd696) => {
+            const _0x421672 = _0x40492b;
+            console[_0x421672(0x1a9)](_0x1fd696);
+            if (_0x1fd696["failed"] === _0x421672(0x169))
+              Swal[_0x421672(0x19f)]({
+                icon: _0x421672(0x160),
+                title: _0x421672(0x169),
+                text: _0x421672(0x18f),
               });
             else
-              _0x1b2f1f[_0x40e873(0xb1)][_0x40e873(0xe3)]("Congratulations") &&
-                Swal[_0x40e873(0xd5)]({
-                  icon: _0x40e873(0xbb),
-                  title: _0x40e873(0x82),
-                  text:
-                    "You\x20are\x20now\x20registered\x20as\x20" +
-                    subPlan +
-                    _0x40e873(0xaf),
-                })["then"]((_0x4164ed) => {
-                  const _0xbad9de = _0x40e873;
-                  (document[_0xbad9de(0xed)] =
-                    "hasSubscribedTruly=true;\x20expires=" +
+              _0x1fd696[_0x421672(0x193)][_0x421672(0x180)](_0x421672(0x14b)) &&
+                Swal[_0x421672(0x19f)]({
+                  icon: _0x421672(0x18c),
+                  title: _0x421672(0x174),
+                  text: _0x421672(0x1a2) + subPlan + _0x421672(0x18e),
+                })[_0x421672(0x165)]((_0x270841) => {
+                  const _0x11059e = _0x421672;
+                  (document["cookie"] =
+                    _0x11059e(0x177) +
                     new Date(
-                      Date[_0xbad9de(0x85)]() +
-                        no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
-                    )[_0xbad9de(0xda)]() +
-                    _0xbad9de(0x8b)),
-                    (window["location"][_0xbad9de(0xdb)] = _0xbad9de(0xe9));
+                      Date["now"]() + no_days_left_ * 0x18 * 0x3c * 0x3c * 0x3e8
+                    )[_0x11059e(0x199)]() +
+                    _0x11059e(0x189)),
+                    (window[_0x11059e(0x1ad)][_0x11059e(0x159)] =
+                      _0x11059e(0x1b0));
                 });
-            console[_0x40e873(0xe5)](_0x1b2f1f);
+            console[_0x421672(0x1a9)](_0x1fd696);
           })
-          [_0xf250fc(0x90)]((_0xafff1c) => {
-            const _0x349476 = _0xf250fc;
-            console[_0x349476(0xe7)](_0xafff1c);
+          [_0x40492b(0x195)]((_0x2bc4be) => {
+            const _0xad6596 = _0x40492b;
+            console[_0xad6596(0x160)](_0x2bc4be);
           });
       }
     }
