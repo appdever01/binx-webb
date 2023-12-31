@@ -491,6 +491,11 @@ window.addEventListener("load", () => {
     mirror: false,
   });
 });
+
+window.addEventListener("load", function () {
+  var preloader = document.getElementById("preloader");
+  preloader.classList.add("d-none");
+});
 /**
  * Initiate Pure Counter
  */
