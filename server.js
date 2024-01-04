@@ -14,13 +14,15 @@ const User = require('./model')
 
 const app = express();
 
-const url = "https://binxai.tekcify.com"
+const url = "http://localhost:3001"
 
-app.use(cors({
-  origin: url,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Enable credentials (e.g., cookies, authorization headers)
-}));
+// app.use(cors({
+//   origin: url,
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // Enable credentials (e.g., cookies, authorization headers)
+// }));
+
+app.use(cors())
 
 app.use(express.static("public"));
 app.use(bodyParser.json())
@@ -41,35 +43,120 @@ const allowedOrigins = ['https://binxai.tekcify.com', "http://localhost:3001"];
 const crypto = require('crypto');
 const secretKey = process.env.SECRET_KEY;
 
-// Using Express
-app.post("/api/webhook", function(req, res) {
-  console.log("worked")
-  const {db_key} = req.query
-  if(!db_key){
-    return res.json({
-      status: 401,
-      success: false
-    })
-  }
-  if(db_key != DB_KEY){
-    return res.json({
-      status: 401,
-      success: false,
-      message: "check"
-    })
+
+const confirm_payment = async (phone, plan) => {
+
+  const user_basic = await User.find({phone_number: phone.trim(), subscription: "Basic"}).sort("-createdAt")
+  const user_premium = await User.find({phone_number: phone.trim(), subscription: "Premium"}).sort("-createdAt")
+
+
+  let user_subscription_basic = {}
+  for(const i of user_basic){
+      //check and get the user subscription that is not expired
+      let date_ = new Date(); // today's date
+      const date = convert_date(date_)
+      let givenDate = new Date(date);
+      let specificDate = new Date(i.expiry_dae);
+      const isWithin = isWithin30DaysBefore(givenDate, specificDate)
+      if(isWithin == true){
+        user_subscription_basic = i
+        break
+      }
   }
 
+  let user_subscription_premium = {}
+
+  for(const i of user_premium){
+    //check and get the user subscription that is not expired
+    let date_ = new Date(); // today's date
+    const date = convert_date(date_)
+    let givenDate = new Date(date);
+    let specificDate = new Date(i.expiry_dae);
+    const isWithin = isWithin30DaysBefore(givenDate, specificDate)
+    if(isWithin == true){
+      user_subscription_premium = i
+      break
+    }
+  }
+
+  let paid = false
+  let otp;
+
+  if(plan == "Basic"){
+    if(Object.keys(user_subscription_basic).length > 0 || Object.keys(user_subscription_premium).length > 0){
+      paid = true
+    }
+    if(Object.keys(user_subscription_basic).length > 0){
+      otp = user_subscription_basic.otp
+    } else {
+      otp = true
+    }
+    if(Object.keys(user_subscription_premium).length > 0){
+      otp = true
+    }
+  }
+
+  if(plan == "Premium"){
+    if(Object.keys(user_subscription_premium).length > 0){
+      paid = true
+    }
+    if(Object.keys(user_subscription_premium).length > 0){
+      otp = user_subscription_premium.otp
+    } else {
+      otp = true
+    }
+  }
+  
+
+
+  return {
+    status: 200,
+    failed: false,
+    paid: paid,
+    otp: otp
+  }
+}
+
+app.post("/api/webhook", async function(req, res) {
+    console.log("worked")
+    const {db_key} = req.query
+    if(!db_key){
+      return res.json({
+        status: 401,
+        success: false
+      })
+    }
+    if(db_key != DB_KEY){
+      return res.json({
+        status: 401,
+        success: false,
+        message: "check"
+      })
+    }
+
+    let id_ = req.body.data.reference
+
     //validate event
-//     const payload = JSON.stringify(req.body);
-//     const hash = crypto.createHmac('sha512', secretKey).update(payload, 'utf-8').digest('hex');
-//     console.log(hash)
-//     console.log(req.headers['x-paystack-signature'])
-//     if (hash == req.headers['x-paystack-signature']) {
+    // const payload = JSON.stringify(req.body);
+
+    // const hash = crypto.createHmac('sha512', secretKey).update(payload).digest('hex');
+
+    // console.log(hash)
+    // console.log(req.headers['x-paystack-signature'])
+    //     if (hash == req.headers['x-paystack-signature']) {
     // Retrieve the request's body
     const event = req.body;
     console.log(event)
     let status = 400;
-    // Handle different Paystack event types
+   
+    // check if customer has been proccessed
+    const check_customer = await User.find({id: id_})
+
+    if(check_customer.length > 0){
+      console.log("true proccesed")
+      return
+    }
+
     switch (event.event) {
       case 'charge.create':
         console.log('Customer created:', event.data);
@@ -78,10 +165,8 @@ app.post("/api/webhook", function(req, res) {
 
       case 'charge.success':
         console.log('Payment successful:', event.data);
-
-        console.log(event.data.metadata.custom_fields)
         // Make a POST request to save the user to database
-        const apiUrl = `${url}/api/user`; // Replace with your API endpoint
+        // const apiUrl = `http://localhost:3001/api/user`; // Replace with your API endpoint
         const dataToSend = {
           email: event.data.customer.email,
           subscription: event.data.metadata.custom_fields[1].value, 
@@ -90,23 +175,50 @@ app.post("/api/webhook", function(req, res) {
           amount: event.data.amount
         };
 
-        axios.post(apiUrl, dataToSend, {
-          headers: {
-            'Content-Type': 'application/json',
-            // Add other headers as needed
-          },
-        })
-          .then(response => {
-            console.log('Response:', response.data);
-            // Process the response data
-            if(response.data.status == 201){
-              status = 200
-            }
+        // axios.post(apiUrl, dataToSend, {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //     // Add other headers as needed
+        //   },
+        // })
+        //   .then(response => {
+        //     console.log('Response:', response.data);
+        //     // Process the response data
+        //     if(response.data.status == 201){
+        //       status = 200
+        //     }
+        //   })
+        //   .catch(error => {
+        //     console.error('Error:', error.message);
+        //     // Handle errors
+        //   });
+
+          //get expiry dagte
+        
+        // save data to database
+        let today = new Date();
+        const date_30 = add30Days(today, 30)
+        const date = convert_date(date_30)
+        const date2 = convert_date(today)
+
+        const {email, subscription, phone, amount } = dataToSend
+        let phone_ = phone.replace('+', '');
+        console.log(phone_)
+
+        // check if phone number with subscription plan exist
+        const {paid, otp} = await confirm_payment(phone_, subscription)
+
+        if(paid == false){
+          const user = await User.create({
+            id: id_,
+            email, subscription, phone_number:phone_,
+            expiry_dae: date,
+            date_paid: date2,
+            amount: amount
           })
-          .catch(error => {
-            console.error('Error:', error.message);
-            // Handle errors
-          });
+        }
+
+        status = 200
 
         break;
 
@@ -116,6 +228,8 @@ app.post("/api/webhook", function(req, res) {
         console.log('Unhandled event:', event);
     }
     console.log(status, "check status")
+
+    
     res.sendStatus(status);
 });
 
@@ -130,77 +244,6 @@ app.get('/pay', (req, res) => {
 })
 
 
-const confirm_payment = async (phone, plan) => {
-
-    const user_basic = await User.find({phone_number: phone.trim(), subscription: "Basic"}).sort("-createdAt")
-    const user_premium = await User.find({phone_number: phone.trim(), subscription: "Premium"}).sort("-createdAt")
-
-
-    let user_subscription_basic = {}
-    for(const i of user_basic){
-        //check and get the user subscription that is not expired
-        let date_ = new Date(); // today's date
-        const date = convert_date(date_)
-        let givenDate = new Date(date);
-        let specificDate = new Date(i.expiry_dae);
-        const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-        if(isWithin == true){
-          user_subscription_basic = i
-          break
-        }
-    }
-
-    let user_subscription_premium = {}
-
-    for(const i of user_premium){
-      //check and get the user subscription that is not expired
-      let date_ = new Date(); // today's date
-      const date = convert_date(date_)
-      let givenDate = new Date(date);
-      let specificDate = new Date(i.expiry_dae);
-      const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-      if(isWithin == true){
-        user_subscription_premium = i
-        break
-      }
-    }
-
-    let paid = false
-    let otp;
-
-    if(plan == "Basic"){
-      if(Object.keys(user_subscription_basic).length > 0 || Object.keys(user_subscription_premium).length > 0){
-        paid = true
-      }
-      if(Object.keys(user_subscription_basic).length > 0){
-        otp = user_subscription_basic.otp
-      } else {
-        otp = true
-      }
-      if(Object.keys(user_subscription_premium).length > 0){
-        otp = true
-      }
-    }
-
-    if(plan == "Premium"){
-      if(Object.keys(user_subscription_premium).length > 0){
-        paid = true
-      }
-      if(Object.keys(user_subscription_premium).length > 0){
-        otp = user_subscription_premium.otp
-      } else {
-        otp = true
-      }
-    }
-    
-
-    return {
-      status: 200,
-      failed: false,
-      paid: paid,
-      otp: otp
-    }
-}
 
 const set_otp = async (phone, plan) => {
   
@@ -399,50 +442,50 @@ function howManyDaysPast(currentDate, pastDate){
     return numberOfDays
 }
 
-app.post('/api/users', async (req, res) => {
-    const {email, subscription, phone, db_key, amount } = req.body
-    console.log(req.body)
-    if(!db_key){
-      return res.json({
-        status: 401,
-        success: false
-      })
-    }
-    if(db_key != DB_KEY){
-      return res.json({
-        status: 401,
-        success: false
-      })
-    }
+// app.post('/api/users', async (req, res) => {
+//     const {email, subscription, phone, db_key, amount } = req.body
+//     console.log(req.body)
+//     if(!db_key){
+//       return res.json({
+//         status: 401,
+//         success: false
+//       })
+//     }
+//     if(db_key != DB_KEY){
+//       return res.json({
+//         status: 401,
+//         success: false
+//       })
+//     }
 
 
-    //get expiry dagte
-    let today = new Date();
-    const date_30 = add30Days(today, 30)
-    const date = convert_date(date_30)
-    const date2 = convert_date(today)
+//     //get expiry dagte
+//     let today = new Date();
+//     const date_30 = add30Days(today, 30)
+//     const date = convert_date(date_30)
+//     const date2 = convert_date(today)
 
-    let phone_ = phone.replace('+', '');
-    console.log(phone_)
+//     let phone_ = phone.replace('+', '');
+//     console.log(phone_)
 
-    // check if phone number with subscription plan exist
-    const {paid, otp} = await confirm_payment(phone_, subscription)
+//     // check if phone number with subscription plan exist
+//     const {paid, otp} = await confirm_payment(phone_, subscription)
 
-    if(paid == false){
-      const user = await User.create({
-        email, subscription, phone_number:phone_,
-        expiry_dae: date,
-        date_paid: date2,
-        amount: amount
-      })
-    }
+//     if(paid == false){
+//       const user = await User.create({
+//         email, subscription, phone_number:phone_,
+//         expiry_dae: date,
+//         date_paid: date2,
+//         amount: amount
+//       })
+//     }
     
-    res.json({
-      status: 201,
-      success: true
-    })
+//     res.json({
+//       status: 201,
+//       success: true
+//     })
 
-})
+// })
 
 app.get('/api/get_amount', async (req, res) => {
 

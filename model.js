@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
+  id: {
+    type: String,
+  },
   email:{
     type: String,
     required: [true, 'Please provide an email'],
