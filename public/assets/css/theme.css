@@ -1710,6 +1710,10 @@ progress {
   margin-top: 90px;
 }
 
+.uncomplete_form {
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .p-form {
     margin-top: 60px !important;

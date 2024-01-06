@@ -10,13 +10,29 @@ function generateRandomString(length) {
 let amount = 300000;
 const urlParams = new URLSearchParams(window.location.search);
 const plan = urlParams.get("plan")?.toLowerCase() || "basic";
-const pls = document.getElementById("plan_show");
+const alert_div = document.getElementById("alert_show");
+U_form_trigger = document.getElementById("trigger_form");
+paymentForm = document.getElementById("paymentForm");
+UpaymentForm = document.getElementById("UncompletedForm");
 var sentOtp = false;
 btn = document.getElementById("continueBtn");
 subPlan = "Basic";
 btnText = "Continue";
 hasPaid = false;
 
+U_form_trigger.addEventListener("click", () => {
+  if (UpaymentForm.classList.contains("d-none")) {
+    UpaymentForm.classList.remove("d-none");
+    paymentForm.classList.add("d-none");
+    U_form_trigger.innerText = "Make New Payment";
+    alert_div.innerText = "Okay! Let's continue from where we stopped";
+  } else {
+    UpaymentForm.classList.add("d-none");
+    paymentForm.classList.remove("d-none");
+    U_form_trigger.innerText = "Have an Uncompleted Payment ?";
+    alert_div.innerText = "Start your journey with Binx ! Pay as You Go";
+  }
+});
 function payWithPaystack(email, phone, amount, plan) {
   var handler = PaystackPop.setup({
     key: publicKey,
