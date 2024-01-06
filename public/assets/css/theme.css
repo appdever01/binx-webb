@@ -22636,6 +22636,10 @@ Pricing
   background-size: cover;
   padding: 60px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 45px;
 }
@@ -22655,7 +22659,7 @@ Pricing
   font-style: normal;
 }
 
-.pricing-tables .item span {
+.pricing-tables .item .m-head {
   font-size: 44px;
   color: #683AB7;
   font-weight: 700;
@@ -23083,7 +23087,7 @@ Pricing
   background: #fff;
 }
 
-svg {
+.preloader img {
   display: block;
   width: 258px;
   height: 258px;
@@ -23093,12 +23097,12 @@ svg {
   transform: translate(-50%, -50%);
 }
 
-.tree {
-  fill: #683AB7;
-}
 
-.circle-mask {
+.preloader .circle-mask {
   transform-origin: 50% 90%;
+  position: absolute;
+    left: 50%;
+    top: 50%;
   animation: scale 5s infinite ease-out;
 }
 
@@ -23106,18 +23110,19 @@ svg {
 
   0%,
   100% {
-    transform: scale(0.0);
+    transform: scale(0.0) rotate(180deg);
   }
 
   7%,
   90% {
-    transform: scale(0.4);
+    transform: scale(0.4) rotate(0deg);
   }
 
   50% {
-    transform: scale(1);
+    transform: scale(1) rotate(360deg);
   }
 }
+
 
 /*-----------------------------------------------
 |   User Styles

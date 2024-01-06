@@ -1,10 +1,11 @@
 function generateRandomString(length) {
   const array = new Uint8Array(length);
   window.crypto.getRandomValues(array);
-  const randomString = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+  const randomString = Array.from(array, (byte) =>
+    byte.toString(16).padStart(2, "0")
+  ).join("");
   return randomString;
 }
-
 
 let amount = 300000;
 const urlParams = new URLSearchParams(window.location.search);
@@ -15,62 +16,6 @@ btn = document.getElementById("continueBtn");
 subPlan = "Basic";
 btnText = "Continue";
 hasPaid = false;
-const cookieName = "hasSubscribed";
-const cookieName2 = "sub_number";
-const cookieName3 = "hasSubscribedTruly";
-const cookieName4 = "sub_number_premium";
-const cookies = document.cookie.split(";");
-
-let cookieValue = null;
-let subNumber = null;
-let subNumber_Premium = null;
-
-let hasSubscribedTruly = null;
-for (let i = 0; i < cookies.length; i++) {
-  const cookie = cookies[i].trim();
-  if (cookie.startsWith("hasSubscribed=")) {
-    cookieValue = cookie.substring(cookieName.length + 1);
-    break;
-  }
-}
-for (let i = 0; i < cookies.length; i++) {
-  const cookie = cookies[i].trim();
-  if (cookie.startsWith("sub_number=")) {
-    subNumber = cookie.substring(cookieName2.length + 1);
-    break;
-  }
-}
-for (let i = 0; i < cookies.length; i++) {
-  const cookie = cookies[i].trim();
-  if (cookie.startsWith("hasSubscribedTruly=")) {
-    hasSubscribedTruly = cookie.substring(cookieName3.length + 1);
-    break;
-  }
-}
-for (let i = 0; i < cookies.length; i++) {
-  const cookie = cookies[i].trim();
-  if (cookie.startsWith("sub_number_premium=")) {
-    subNumber_Premium = cookie.substring(cookieName4.length + 1);
-    break;
-  }
-}
-switch (plan) {
-  case "basic":
-    amount = 300000;
-    pls.innerHTML = "You have chosen a basic plan";
-    subPlan = "Basic";
-    break;
-  case "premium":
-    amount = 600000;
-    pls.innerHTML = "You have chosen a premium premium plan";
-    subPlan = "Premium";
-    break;
-  default:
-    amount = 300000;
-    pls.innerHTML = "You have chosen a basic plan";
-    subPlan = "Basic";
-    break;
-}
 
 function payWithPaystack(email, phone, amount, plan) {
   var handler = PaystackPop.setup({
@@ -99,13 +44,11 @@ function payWithPaystack(email, phone, amount, plan) {
       const options = { day: "numeric", month: "short", year: "numeric" };
       const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
-
-      
       Swal.fire({
         icon: "success",
         title: "Payment complete!",
         text: "Reference: " + response.reference,
-      }).then( (value) => {
+      }).then((value) => {
         hasPaid = true;
         btn.disabled = true;
         btnText = "Please wait...";
@@ -187,75 +130,58 @@ document
     const otpValue = document.getElementById("otp").value;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!otpValue){
+    if (!otpValue) {
       if (
         fname.trim() !== "" &&
         lname.trim() !== "" &&
         phone.trim() !== "" &&
         emailRegex.test(email)
       ) {
-        // Display the OTP input field
         event.preventDefault();
 
         const phoneNumber = countryCode + phone.trim();
 
-        // CHECK IF THE NUMBER HAS PAID
-
-        // get request
-        let paid_before = true
-        let otp_ = true
+        let paid_before = true;
+        let otp_ = true;
 
         await fetch(`/api/confirm?phone=${phoneNumber}&plan=${subPlan}`)
-          .then(response => response.json())
-          .then(data => {
-            // change amount is needed
-            if (data.status == 200 && data.failed == false ){
-              paid_before = data.paid 
-              otp_ = data.otp
-
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status == 200 && data.failed == false) {
+              paid_before = data.paid;
+              otp_ = data.otp;
             }
-            console.log('Success:')
+            console.log("Success:");
           })
           .catch((error) => {
-              console.error('Error:', error);
-        });
+            console.error("Error:", error);
+          });
 
-
-        if (
-          paid_before == true && otp_ == true
-        ) {
+        if (paid_before == true && otp_ == true) {
           Swal.fire({
             icon: "info",
             title: "Duplicate Subscription",
             text: "Seems this number has been subscribed already, please try different number!",
           });
         } else {
-            
-          if (paid_before == false)  {
-            // Make a GET request to get the amount to pay if subscription exist and is a basic plan
-          let amount_sent
+          if (paid_before == false) {
+            let amount_sent;
             await fetch(`/api/get_amount?phone=${phoneNumber}&plan=${subPlan}`)
-              .then(response => response.json())
-              .then(data => {
-                // change amount is needed
-                if (data.status == 200 && data.failed == false ){
-                  amount_sent = data.amount 
-
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.status == 200 && data.failed == false) {
+                  amount_sent = data.amount;
                 }
-                console.log('Success:')
+                console.log("Success:");
               })
               .catch((error) => {
-                  console.error('Error:', error);
-            });
+                console.error("Error:", error);
+              });
             payWithPaystack(email, phoneNumber, amount_sent, subPlan);
           }
         }
 
-
-      
-        if (
-          paid_before == true && otp_ == false
-        ) {
+        if (paid_before == true && otp_ == false) {
           if (!sentOtp) {
             btn.disabled = true;
             btnText = "Please wait...";
@@ -263,12 +189,9 @@ document
 
             const apiUrl = `/api/request?phone=${phoneNumber}&key=${verify_key}&plan=${subPlan}`;
 
-
-            // Make a GET request to the API
             fetch(apiUrl)
               .then((response) => response.json())
               .then((data) => {
-              
                 if (data.successful === "Open Your WhatsApp!") {
                   document.getElementById("otp-div").classList.remove("d-none");
 
@@ -281,7 +204,6 @@ document
                     btnText = "Continue";
                     btn.innerHTML = btnText;
                     sentOtp = true;
-
                   });
                 } else if (data.cooldown) {
                   Swal.fire({
@@ -303,13 +225,10 @@ document
                 }
               })
               .catch((error) => {
-                // Handle any errors
                 console.error(error);
               });
           }
-        } else if (
-          paid_before == true && otp_ == true
-        ) {
+        } else if (paid_before == true && otp_ == true) {
           Swal.fire({
             icon: "info",
             title: "Duplicate Subscription",
@@ -317,12 +236,9 @@ document
           });
         }
       }
-
     } else {
-      // Display the OTP input field
       event.preventDefault();
     }
-
   });
 
 btn.addEventListener("click", () => {
@@ -340,11 +256,9 @@ btn.addEventListener("click", () => {
     } else {
       const apiUrl = `/api/verify?phone=${phoneNumber}&subscription=${subPlan}&code=${otpValue.trim()}&key=${verify_key}`;
 
-
       fetch(apiUrl)
         .then((response) => response.json())
         .then(async (data) => {
-
           if (data.failed === "Invalid or Expired Code") {
             Swal.fire({
               icon: "error",
@@ -352,37 +266,33 @@ btn.addEventListener("click", () => {
               text: "The OTP code is invalid or has expired.",
             });
           } else if (data.successful.startsWith("Congratulations")) {
-            // Set OPT True to the phone number database
-            
-            await fetch('/api/set_otp', {
-              method: 'POST',
+            await fetch("/api/set_otp", {
+              method: "POST",
               headers: {
-                  'Content-Type': 'application/json'
+                "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                  plan: subPlan,
-                  phone: phoneNumber,
-              })
-              })
-              .then(response => response.json())
-              .then(data => console.log('Success:'))
+                plan: subPlan,
+                phone: phoneNumber,
+              }),
+            })
+              .then((response) => response.json())
+              .then((data) => console.log("Success:"))
               .catch((error) => {
-                  console.error('Error:', error);
-            });
+                console.error("Error:", error);
+              });
 
             Swal.fire({
               icon: "info",
               title: "Congratulations 🎊",
               text: `You are now registered as ${subPlan} user.`,
             }).then((value) => {
-              
               window.location.href =
                 "https://wa.me/2349057642334?text=Hello%20Binx%20AI";
             });
           }
         })
         .catch((error) => {
-          // Handle any errors
           console.error(error);
         });
     }

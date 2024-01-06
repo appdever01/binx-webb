@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Binx AI</title>
+    <title>Binx AI - Pay as You Go</title>
     <meta
       name="description"
       content="Binx AI is an innovative WhatsApp chatbot crafted by Tekcify Inc to enhance your daily communication. It brings a suite of powerful features to your fingertips, transforming your interactions into an effortless and enjoyable experience. Discover intelligent text response, voice note transcription, image to sticker conversion, voice note replies, song lyric search, and YouTube video downloads. Embrace the future of communication with Binx AI."
@@ -145,10 +145,29 @@
               </div>
 
               <div class="col-md-6 col-lg-5 mx-auto">
-                <div class="alert alert-success" id="plan_show"></div>
+                <div class="alert alert-success" id="plan_show">
+                  Start your journey with Binx !!! Pay as You Go
+                </div>
                 <form id="paymentForm" action="#" method="POST">
                   <div class="row">
-                    <!-- First Name -->
+                    <div class="input-group col-lg-6 mb-4">
+                      <div class="input-group-prepend">
+                        <span
+                          class="input-group-text bg-white px-4 border-md border-right-0"
+                        >
+                          <i class="fa fa-dollar-sign text-muted"></i>
+                        </span>
+                      </div>
+                      <input
+                        id="amountToDeposit"
+                        type="text"
+                        name="amountToDeposit"
+                        placeholder="Amount to deposit"
+                        class="form-control bg-white border-left-0 border-md py-4"
+                        required
+                      />
+                    </div>
+
                     <div class="input-group col-lg-6 mb-4">
                       <div class="input-group-prepend">
                         <span
@@ -167,7 +186,6 @@
                       />
                     </div>
 
-                    <!-- Last Name -->
                     <div class="input-group col-lg-6 mb-4">
                       <div class="input-group-prepend">
                         <span
@@ -186,7 +204,6 @@
                       />
                     </div>
 
-                    <!-- Email Address -->
                     <div class="input-group col-lg-12 mb-4">
                       <div class="input-group-prepend">
                         <span
@@ -205,7 +222,6 @@
                       />
                     </div>
 
-                    <!-- Phone Number -->
                     <div class="input-group col-lg-12 mb-4">
                       <div class="input-group-prepend">
                         <span
