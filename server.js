@@ -44,70 +44,17 @@ const crypto = require('crypto');
 const secretKey = process.env.SECRET_KEY;
 
 
-const confirm_payment = async (phone, plan) => {
+const confirm_payment = async (phone, reference) => {
 
-  const user_basic = await User.find({phone_number: phone.trim(), subscription: "Basic"}).sort("-createdAt")
-  const user_premium = await User.find({phone_number: phone.trim(), subscription: "Premium"}).sort("-createdAt")
-
-
-  let user_subscription_basic = {}
-  for(const i of user_basic){
-      //check and get the user subscription that is not expired
-      let date_ = new Date(); // today's date
-      const date = convert_date(date_)
-      let givenDate = new Date(date);
-      let specificDate = new Date(i.expiry_dae);
-      const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-      if(isWithin == true){
-        user_subscription_basic = i
-        break
-      }
-  }
-
-  let user_subscription_premium = {}
-
-  for(const i of user_premium){
-    //check and get the user subscription that is not expired
-    let date_ = new Date(); // today's date
-    const date = convert_date(date_)
-    let givenDate = new Date(date);
-    let specificDate = new Date(i.expiry_dae);
-    const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-    if(isWithin == true){
-      user_subscription_premium = i
-      break
-    }
-  }
+  const user_basic = await User.findOne({phone_number: phone.trim(), id: reference})
 
   let paid = false
   let otp;
 
-  if(plan == "Basic"){
-    if(Object.keys(user_subscription_basic).length > 0 || Object.keys(user_subscription_premium).length > 0){
-      paid = true
-    }
-    if(Object.keys(user_subscription_basic).length > 0){
-      otp = user_subscription_basic.otp
-    } else {
-      otp = true
-    }
-    if(Object.keys(user_subscription_premium).length > 0){
-      otp = true
-    }
+  if(user_basic){
+    paid = true
+    otp = user_basic.otp
   }
-
-  if(plan == "Premium"){
-    if(Object.keys(user_subscription_premium).length > 0){
-      paid = true
-    }
-    if(Object.keys(user_subscription_premium).length > 0){
-      otp = user_subscription_premium.otp
-    } else {
-      otp = true
-    }
-  }
-  
-
 
   return {
     status: 200,
@@ -118,7 +65,7 @@ const confirm_payment = async (phone, plan) => {
 }
 
 app.post("/api/webhook", async function(req, res) {
-    console.log("worked")
+   
     const {db_key} = req.query
     if(!db_key){
       return res.json({
@@ -146,7 +93,6 @@ app.post("/api/webhook", async function(req, res) {
     //     if (hash == req.headers['x-paystack-signature']) {
     // Retrieve the request's body
     const event = req.body;
-    console.log(event)
     let status = 400;
    
     // check if customer has been proccessed
@@ -159,41 +105,19 @@ app.post("/api/webhook", async function(req, res) {
 
     switch (event.event) {
       case 'charge.create':
-        console.log('Customer created:', event.data);
         // Handle successful payment event
         break;
 
       case 'charge.success':
-        console.log('Payment successful:', event.data);
         // Make a POST request to save the user to database
         // const apiUrl = `http://localhost:3001/api/user`; // Replace with your API endpoint
         const dataToSend = {
           email: event.data.customer.email,
-          subscription: event.data.metadata.custom_fields[1].value, 
-          phone: event.data.customer.phone, 
-          db_key: DB_KEY,
+          amount_dollars: event.data.metadata.custom_fields[1].value, 
+          phone: event.data.metadata.custom_fields[0].value, 
           amount: event.data.amount
         };
 
-        // axios.post(apiUrl, dataToSend, {
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //     // Add other headers as needed
-        //   },
-        // })
-        //   .then(response => {
-        //     console.log('Response:', response.data);
-        //     // Process the response data
-        //     if(response.data.status == 201){
-        //       status = 200
-        //     }
-        //   })
-        //   .catch(error => {
-        //     console.error('Error:', error.message);
-        //     // Handle errors
-        //   });
-
-          //get expiry dagte
         
         // save data to database
         let today = new Date();
@@ -201,23 +125,17 @@ app.post("/api/webhook", async function(req, res) {
         const date = convert_date(date_30)
         const date2 = convert_date(today)
 
-        const {email, subscription, phone, amount } = dataToSend
+        const {email, phone, amount, amount_dollars} = dataToSend
         let phone_ = phone.replace('+', '');
-        console.log(phone_)
 
-        // check if phone number with subscription plan exist
-        const {paid, otp} = await confirm_payment(phone_, subscription)
-
-        if(paid == false){
-          const user = await User.create({
-            id: id_,
-            email, subscription, phone_number:phone_,
-            expiry_dae: date,
-            date_paid: date2,
-            amount: amount
-          })
-        }
-
+        const user = await User.create({
+          id: id_,
+          email, phone_number:phone_,
+          date_paid: date2,
+          amount: amount,
+          amount_dollars: amount_dollars
+        })
+    
         status = 200
 
         break;
@@ -227,8 +145,6 @@ app.post("/api/webhook", async function(req, res) {
       default:
         console.log('Unhandled event:', event);
     }
-    console.log(status, "check status")
-
     
     res.sendStatus(status);
 });
@@ -245,33 +161,21 @@ app.get('/pay', (req, res) => {
 
 
 
-const set_otp = async (phone, plan) => {
+const set_otp = async (phone, reference) => {
   
-    const user = await User.find({phone_number: phone.trim(), subscription: plan}).sort("-createdAt")
+    const user = await User.findOne({phone_number: phone.trim(), id: reference})
 
-    let user_subscription = {}
-    for(const i of user){
-        //check and get the user subscription that is not expired
-        let date_ = new Date(); // today's date
-        const date = convert_date(date_)
-        let givenDate = new Date(date);
-        let specificDate = new Date(i.expiry_dae);
-        const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-        if(isWithin == true){
-          user_subscription = i
-          break
-        }
-    }
 
-    const id = user_subscription._id
+    const id = user._id
     const set_otp = await User.findOneAndUpdate({_id: id}, {otp: true}, {new: true})
 
-
 }
+
+
 // Set up a proxy for the HTTP API
 app.get("/api/request", async (req, res, next) => {
   // Extract parameters from the original request
-  const { phone, key, plan } = req.query;
+  const { phone, key, reference } = req.query;
 
   if(!key){
     return res.json({
@@ -287,11 +191,11 @@ app.get("/api/request", async (req, res, next) => {
   }
 
 
-  if(!phone || !plan){
+  if(!phone || !reference){
     return res.json({
       status: 404,
       failed: true,
-      message: "phone field and plan filled must not be empty"
+      message: "phone field and reference filled must not be empty"
     })
   }
 
@@ -305,13 +209,13 @@ app.get("/api/request", async (req, res, next) => {
     phone_ = phone;
   }
 
-  const {paid, otp} = await confirm_payment(phone, plan)
+  const {paid, otp} = await confirm_payment(phone, reference)
 
   if(paid == true){
     if(paid == true & otp == false){
       try{
         const response = await axios.get(
-          `http://binxai.tekcify.com:4000/request?phone=${phone_}&key=${verify_key}`,
+          `http://binxai.tekcify.com:4001/request?phone=${phone_}&key=${verify_key}`,
         );
         res.json(response.data);
     
@@ -340,56 +244,52 @@ app.get("/api/request", async (req, res, next) => {
 
 app.get("/api/verify", async (req, res, next) => {
   // Extract parameters from the original request
-  const { phone, subscription, code, key } = req.query;
+  const { phone, code, key, reference } = req.query;
   
   if(!key){
     return res.json({
       status: 401,
-      success: false
+      success: false,
+      message: "UnAuthorized",
     })
   }
   if(key != verify_key2){
     return res.json({
       status: 401,
-      success: false
+      success: false,
+      message: "UnAuthorized",
+    })
+  }
+  if(!reference && !phone){
+    return res.json({
+      status: 404,
+      success: false,
+      message: "Payment Failed"
     })
   }
 
-  console.log(req.query);
 
   // check plan and number correlates
 
-  const user = await User.find({phone_number: phone.trim(), subscription: subscription}).sort("-createdAt")
+  const user = await User.findOne({phone_number: phone.trim(), id: reference})
 
 
-  let user_subscription = {}
-  for(const i of user){
-      //check and get the user subscription that is not expired
-      let date_ = new Date(); // today's date
-      const date = convert_date(date_)
-      let givenDate = new Date(date);
-      let specificDate = new Date(i.expiry_dae);
-      const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-      if(isWithin == true){
-        user_subscription = i
-        break
-      }
-  }
-
-  if(Object.keys(user_subscription).length <= 0){
+  if(!user){
     return res.json({
       status: 401,
-      success: false
+      success: false,
+      message: "Payment Failed"
     })
   }
-
+  
+  const credit = await user.amount_dollars
   try {
     const response = await axios.get(
-      `http://binxai.tekcify.com:4000/verify?phone=${phone}&subscription=${subscription}&code=${code}&key=${verify_key}`,
+      `http://binxai.tekcify.com:4001/verify?phone=${phone}&key=${verify_key}&code=${code}&credit=${credit}`,
     );
     // set otp in the dataase
     if (response.data.successful.startsWith("Congratulations")){
-      await set_otp(phone, subscription)
+      await set_otp(phone,reference )
     }
     res.json(response.data);
   } catch (error) {
@@ -442,128 +342,66 @@ function howManyDaysPast(currentDate, pastDate){
     return numberOfDays
 }
 
-// app.post('/api/users', async (req, res) => {
-//     const {email, subscription, phone, db_key, amount } = req.body
-//     console.log(req.body)
-//     if(!db_key){
-//       return res.json({
-//         status: 401,
-//         success: false
-//       })
-//     }
-//     if(db_key != DB_KEY){
-//       return res.json({
-//         status: 401,
-//         success: false
-//       })
-//     }
 
-
-//     //get expiry dagte
-//     let today = new Date();
-//     const date_30 = add30Days(today, 30)
-//     const date = convert_date(date_30)
-//     const date2 = convert_date(today)
-
-//     let phone_ = phone.replace('+', '');
-//     console.log(phone_)
-
-//     // check if phone number with subscription plan exist
-//     const {paid, otp} = await confirm_payment(phone_, subscription)
-
-//     if(paid == false){
-//       const user = await User.create({
-//         email, subscription, phone_number:phone_,
-//         expiry_dae: date,
-//         date_paid: date2,
-//         amount: amount
-//       })
-//     }
-    
-//     res.json({
-//       status: 201,
-//       success: true
-//     })
-
-// })
+function stringToFloat(inputString) {
+  try {
+      const floatValue = parseFloat(inputString);
+      if (isNaN(floatValue)) {
+          throw new Error("Invalid input. Please enter a string that can be converted to a float.");
+      }
+      return floatValue;
+  } catch (error) {
+      console.error(error.message);
+      return null;
+  }
+}
 
 app.get('/api/get_amount', async (req, res) => {
 
   // api url only for premium subscriotion payments
-    const {phone, plan } = req.query
+    const {phone, amount } = req.query
 
-      const phone_ = phone.trim()
-      console.log(phone_)
-      
-      console.log(req.query)
-      if(!phone || !plan){
-        return res.json({
-          status: 404,
-          amount: -20,
-          failed: true,
-          message: "phone field and plan filled must not be empty"
-        })
-      }
-      if(plan != "Premium"){
-        return res.json({
-          status: 200,
-          amount: 3000 * 100, //in kobo
-          failed: false,
-        })
-      }
+    // convert to float
+    const amount_ = stringToFloat(amount);
 
-      const user = await User.find({phone_number: phone.trim(), subscription: "Basic"}).sort("-createdAt")
-      
-      if(user.length <= 0){
-        return res.json({
-          status: 200,
-          failed: false,
-          amount: 600000//use normal amount
-        })
-      }
-
-      let user_subscription = {}
-      for(const i of user){
-          //check and get the user subscription that is not expired
-          let date_ = new Date(); // today's date
-          const date = convert_date(date_)
-          let givenDate = new Date(date);
-          let specificDate = new Date(i.expiry_dae);
-          const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-          if(isWithin == true){
-            user_subscription = i
-            break
-          }
-      }
-
-      if(Object.keys(user_subscription).length === 0){
-        // if no undergoing user subscription found
-        return res.json({
-          status: 200,
-          failed: false,
-          amount: 600000//use normal amount
-        })
-      }
-
-      //upgrade to premium and chaneg amount
-      let date_ = new Date()
-      let currentDate_ = convert_date(date_)
-      let currentDate = new Date(currentDate_);
-      let pastDate = new Date(user_subscription.date_paid)
-
-      const no_days_used = howManyDaysPast(currentDate, pastDate)
-      console.log(no_days_used)
-      // calculate amount used from 3k
-      const amount_used_up = 100 * no_days_used
-      const amount_left_Basic = 3000-amount_used_up
-      const amount_to_pay_Premium = 6000 - amount_left_Basic
-      const total_Amount = amount_to_pay_Premium
-
-      res.json({
-        status: 200,
-        amount: total_Amount * 100, //in kobo
-        failed: false,
+    if(amount_ == null){
+      return res.json({
+        status: 404,
+        amount: -20,
+        failed: true,
+        message: "Amount Invalid"
       })
+    }
+    
+    if(!phone){
+      return res.json({
+        status: 404,
+        amount: -20,
+        failed: true,
+        message: "Phone field must not be empty"
+      })
+    }
+
+    const phone_ = phone.trim()
+    //make sure amount is not less than $1
+    if(amount_ < 1){
+      return res.json({
+        status: 404,
+        amount: -20,
+        failed: true,
+        message: "Amount must not be less than $1"
+      })
+    }
+
+    // convert to naira
+    let new_amount = amount_ * 1175
+
+    res.json({
+      status: 200,
+      amount: new_amount * 100, //in kobo
+      amount_dollars: amount_,
+      failed: false,
+    })
     
 })
 
@@ -571,84 +409,28 @@ app.get('/api/get_amount', async (req, res) => {
 
 app.get('/api/confirm', async (req, res) => {
 
-    const {phone, plan} = req.query
+    const {phone, reference} = req.query
  
 
       const phone_ = phone.trim()
-      console.log(phone_)
-      console.log(phone_)
 
-      
-      console.log(req.query)
-      if(!phone || !plan){
+      if(!phone || !reference){
         return res.json({
           status: 404,
           failed: true,
-          message: "phone field and plan filled must not be empty"
+          message: "Phone field must not be empty"
         })
       }
 
-      const user_basic = await User.find({phone_number: phone.trim(), subscription: "Basic"}).sort("-createdAt")
-      const user_premium = await User.find({phone_number: phone.trim(), subscription: "Premium"}).sort("-createdAt")
-
-
-      let user_subscription_basic = {}
-      for(const i of user_basic){
-          //check and get the user subscription that is not expired
-          let date_ = new Date(); // today's date
-          const date = convert_date(date_)
-          let givenDate = new Date(date);
-          let specificDate = new Date(i.expiry_dae);
-          const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-          if(isWithin == true){
-            user_subscription_basic = i
-            break
-          }
-      }
-
-      let user_subscription_premium = {}
-
-      for(const i of user_premium){
-        //check and get the user subscription that is not expired
-        let date_ = new Date(); // today's date
-        const date = convert_date(date_)
-        let givenDate = new Date(date);
-        let specificDate = new Date(i.expiry_dae);
-        const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-        if(isWithin == true){
-          user_subscription_premium = i
-          break
-        }
-      }
+      const user_basic = await User.findOne({phone_number: phone.trim(), id: reference})
 
       let paid = false
       let otp;
-
-      if(plan == "Basic"){
-        if(Object.keys(user_subscription_basic).length > 0 || Object.keys(user_subscription_premium).length > 0){
-          paid = true
-        }
-        if(Object.keys(user_subscription_basic).length > 0){
-          otp = user_subscription_basic.otp
-        } else {
-          otp = true
-        }
-        if(Object.keys(user_subscription_premium).length > 0){
-          otp = true
-        }
+    
+      if(user_basic){
+        paid = true
+        otp = user_basic.otp
       }
-
-      if(plan == "Premium"){
-        if(Object.keys(user_subscription_premium).length > 0){
-          paid = true
-        }
-        if(Object.keys(user_subscription_premium).length > 0){
-          otp = user_subscription_premium.otp
-        } else {
-          otp = true
-        }
-      }
-      
 
       res.json({
         status: 200,
@@ -661,7 +443,7 @@ app.get('/api/confirm', async (req, res) => {
 
 
 app.post('/api/set_otp', async ( req, res) => {
-  const {phone, plan} = req.body
+  const {phone, reference} = req.body
 
   
   const origin = req.get('Origin');
@@ -670,27 +452,17 @@ app.post('/api/set_otp', async ( req, res) => {
   if (allowedOrigins.includes(origin)) {
       
     let phone_ = phone.replace('+', '');
-    console.log(phone_)
 
-    const user = await User.find({phone_number: phone_, subscription: plan}).sort("-createdAt")
+    const user = await User.findOne({phone_number: phone.trim(), id: reference})
 
-    let user_subscription = {}
-    for(const i of user){
-        //check and get the user subscription that is not expired
-        let date_ = new Date(); // today's date
-        const date = convert_date(date_)
-        let givenDate = new Date(date);
-        let specificDate = new Date(i.expiry_dae);
-        const isWithin = isWithin30DaysBefore(givenDate, specificDate)
-        if(isWithin == true){
-          user_subscription = i
-          break
-        }
+    if(!user){
+      return res.json({
+        status: 401,
+        success: false
+      })
     }
-
-    const id = user_subscription._id
-
-    const set_otp = await User.findOneAndUpdate({_id: id}, {otp: true})
+    const id = user._id
+    const set_otp = await User.findOneAndUpdate({_id: id}, {otp: true}, {new: true})
 
     res.json({
       status: 200,

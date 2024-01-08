@@ -22247,6 +22247,7 @@ iframe {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 260px;
 }
 
 .icon-group .icon-item:not(:last-child) {
@@ -22270,7 +22271,7 @@ iframe {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   height: 2.5rem;
-  width: 2.5rem;
+  width: 4.5rem;
   border: 0;
   font-size: 0.875rem;
 }
@@ -22300,6 +22301,15 @@ iframe {
 .icon-item#twitter:hover,
 .icon-item#twitter:focus {
   background-color: #1da1f2;
+}
+
+.icon-item#linkedin {
+  background: #FFFEFE;
+}
+
+.icon-item#linkedin:hover,
+.icon-item#linkedin:focus {
+  background-color: #0077b5;
 }
 
 .icon-item:hover,

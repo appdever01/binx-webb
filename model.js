@@ -9,10 +9,6 @@ const UserSchema = new Schema({
     type: String,
     required: [true, 'Please provide an email'],
   },
-  subscription:{
-    type: String,
-    required: [true, 'Please provide a subscription plan'],
-  },
   phone_number:{
     type: String,
     required: [true, 'Please provide phone number'],
@@ -21,15 +17,15 @@ const UserSchema = new Schema({
     type: mongoose.Schema.Types.Mixed,
     required: [true, 'Please provide a scheduled date'],
   },
-  expiry_dae: {
-    type: mongoose.Schema.Types.Mixed,
-    required: [true, 'Please provide a scheduled date'],
-  },
   otp: {
     type: Boolean,
     default: false
   },
   amount:{
+    type: Number,
+    default: 0
+  },
+  amount_dollars:{
     type: Number,
     default: 0
   }
